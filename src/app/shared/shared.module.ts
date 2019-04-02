@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RaLogoComponent } from './logo.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [RaLogoComponent],
   imports: [
     CommonModule
   ],
-  exports: []
+  exports: [RaLogoComponent]
 })
 export class SharedModule { }

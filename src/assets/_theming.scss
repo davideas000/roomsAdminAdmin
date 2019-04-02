@@ -1,2 +1,11 @@
+@mixin ra-logo-theme($theme) {
+  $foreground: map-get($theme, foreground);
+
+  ra-logo svg.logo {
+    fill: mat-color($foreground, text);
+  }
+}
+
 @mixin ra-theme($theme) {
+  @include ra-logo-theme($theme);
 }
