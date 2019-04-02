@@ -15,4 +15,4 @@ import { MatFormFieldModule, MatInputModule, MatSidenavModule } from '@angular/m
     MatInputModule
   ]
 })
-export class AngularMaterialModule { }
+export class RaAngularMaterialModule { }
