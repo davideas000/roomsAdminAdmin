@@ -1,0 +1,7 @@
+<div class="message-panel"
+    [ngClass]="type === 'error' ? 'message-panel-error' : 'message-panel-success'">
+  <p class="message">
+    <ng-content></ng-content>
+  </p>
+  <button (click)="closeEvent()" class="btn"><span>x</span></button>
+</div>

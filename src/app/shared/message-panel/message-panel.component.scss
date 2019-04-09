@@ -1,0 +1,31 @@
+$line-height: 20px;
+
+.message-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+}
+
+.message {
+  margin: 0;
+}
+
+.btn {
+  $size: 0.75rem;
+
+  border: none;
+  outline: none;
+  border-radius: 100%;
+  font-size: $size !important;
+  height: $size;
+  width: $size;
+  line-height: $size !important;
+  padding: 0;
+  font: inherit;
+}
+
+.btn span {
+  display: block;
+  margin-top: -2px;
+}

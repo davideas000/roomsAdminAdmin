@@ -6,6 +6,42 @@
   }
 }
 
+@mixin ra-message-panel-theme($theme) {
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  ra-message-panel {
+    .message-panel-error {
+      background-color: mat-color($warn, lighter);
+      color: mat-color($warn, "400-contrast");
+      border-left: 10px solid mat-color($warn, 900);
+    }
+
+    .message-panel-success {
+      background-color: mat-color($mat-light-green, 100);
+      color: #000;
+      border-left: 10px solid mat-color($mat-light-green, 800);
+    }
+
+    .btn {
+      background-color: mat-color($mat-gray, 800);
+      color: #FFFFFF;
+
+      $bg-hover: mat-color($mat-gray, 600);
+
+      &:hover {
+        background-color: $bg-hover;
+      }
+
+      &:focus {
+        background-color: $bg-hover;
+      }
+    }
+  }
+}
+
 @mixin ra-theme($theme) {
   @include ra-logo-theme($theme);
+  @include ra-message-panel-theme($theme);
 }
