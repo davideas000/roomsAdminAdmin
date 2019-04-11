@@ -1,3 +1,22 @@
+@mixin backdropbg ($background) {
+
+  $opacity: 0.6;
+  $backdrop-color: mat-color($background, card, $opacity);
+
+  @if (type-of($backdrop-color) == color) {
+    // We use invert() here to have the darken the background color expected to be used. If the
+    // background is light, we use a dark backdrop. If the background is dark,
+    // we use a light backdrop.
+    background-color: invert($backdrop-color);
+  }
+  @else {
+    // If we couldn't resolve the backdrop color to a color value, fall back to using
+    // `opacity` to make it opaque since its end value could be a solid color.
+    background-color: $backdrop-color;
+    opacity: $opacity;
+  }
+}
+
 @mixin ra-logo-theme($theme) {
   $foreground: map-get($theme, foreground);
 
@@ -41,7 +60,16 @@
   }
 }
 
+@mixin ra-overlay-spinner-theme($theme) {
+  $background: map-get($theme, background);
+
+  ra-overlay-spinner {
+    @include backdropbg($background);
+  }
+}
+
 @mixin ra-theme($theme) {
   @include ra-logo-theme($theme);
   @include ra-message-panel-theme($theme);
+  @include ra-overlay-spinner-theme($theme);
 }
