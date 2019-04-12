@@ -1,0 +1,22 @@
+form {
+  margin: 0 auto;
+}
+
+.field {
+  display: block;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.3125rem;        /*20 / 16*/
+}
+
+.reset-pass-link {
+  text-decoration: none;
+}
+
+button {
+  align-self: right;
+}

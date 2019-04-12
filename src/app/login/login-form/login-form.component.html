@@ -1,0 +1,27 @@
+<form
+    [formGroup]="loginForm"
+    class="login-form"
+    (ngSubmit)="onSubmit()">
+  <mat-form-field
+      class="field" color="accent"
+      appearance="standard">
+    <mat-label i18n="login email input box label">Email</mat-label>
+    <input matInput type="email" formControlName="email">
+  </mat-form-field>
+  <mat-form-field
+      class="field" color="accent"
+      appearance="standard">
+    <mat-label i18n>Senha</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field>
+  <div class="button-wrapper">
+    <!-- TODO: add link to reset password page -->
+    <a
+        class="reset-pass-link"
+        routerLink=""
+        i18n>Esqueceu a senha?</a>
+    <button mat-raised-button
+            type="commit"
+            color="accent" i18n="sign in">Entrar</button>
+  </div>
+</form>
