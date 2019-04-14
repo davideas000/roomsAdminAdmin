@@ -1,0 +1,21 @@
+<ng-container [ngSwitch]="errorCode">
+  <ra-message-panel
+      *ngSwitchCase="'missing-email'"
+      (close)="clearErrorMessage()"
+      i18n>O email não é válido</ra-message-panel>
+  <ra-message-panel
+      *ngSwitchCase="'user-not-found'"
+      (close)="clearErrorMessage()"
+      i18n>Não há usuário cadastrado com
+    esse email</ra-message-panel>
+  <ra-message-panel
+      *ngSwitchCase="'wrong-password'"
+      (close)="clearErrorMessage()"
+      i18n>Senha incorreta</ra-message-panel>
+  <ra-message-panel
+      *ngSwitchDefault
+      (close)="clearErrorMessage()"
+      i18n>Não foi possível contatar o servidor, por
+    favor, verifique sua conexão com a Internet
+    e tente novamente</ra-message-panel>
+</ng-container>
