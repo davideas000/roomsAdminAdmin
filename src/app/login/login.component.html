@@ -1,0 +1,15 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav-content class="content">
+    <mat-card class="card">
+      <ra-overlay-spinner
+          *ngIf="loading"></ra-overlay-spinner>
+      <ra-logo class="logo"></ra-logo>
+      <p class="message mat-title" i18n>Bem-vindo(a)</p>
+      <ra-login-error-message
+          *ngIf="error"
+          (closeMessage)="clearErrorMessage()"
+          [errorCode]="errorCode"></ra-login-error-message>
+      <ra-login-form (loginSubmit)="login($event)"></ra-login-form>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
