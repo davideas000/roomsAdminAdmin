@@ -20,3 +20,16 @@ form {
 button {
   align-self: right;
 }
+
+.reset-pass-link {
+  $color: #9F8FFF;
+  color: $color;
+
+  &:hover {
+    color: $color + 20;
+  }
+
+  &:active {
+    color: #FF8877;
+  }
+}
