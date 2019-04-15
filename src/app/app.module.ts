@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { RaLoginModule } from './login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { RaMainModule } from './main/main.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     RaLoginModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RaMainModule
   ],
   providers: [],
   bootstrap: [AppComponent]
