@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule, MatInputModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
+import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { MatFormFieldModule, MatInputModule, MatSidenavModule, MatButtonModule, 
     MatButtonModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    PortalModule
   ],
   exports: [
     MatSidenavModule,
@@ -20,7 +22,8 @@ import { MatFormFieldModule, MatInputModule, MatSidenavModule, MatButtonModule, 
     MatButtonModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    PortalModule
   ]
 })
 export class RaAngularMaterialModule { }

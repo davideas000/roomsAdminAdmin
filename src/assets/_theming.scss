@@ -1,3 +1,5 @@
+@import '../app/main/header/shared/overlay-panel/_overlay-panel-theme';
+
 @mixin backdropbg ($background) {
 
   $opacity: 0.6;
@@ -72,4 +74,5 @@
   @include ra-logo-theme($theme);
   @include ra-message-panel-theme($theme);
   @include ra-overlay-spinner-theme($theme);
+  @include ra-overlay-panel-theme($theme);
 }
