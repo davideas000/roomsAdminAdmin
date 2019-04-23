@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-info {
+  margin-left: 14px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.user-info span {
+  display: block;
+}
+
+$avatar-size: 60px;
+.avatar {
+  width: $avatar-size;
+  height: $avatar-size;
+  font-size: $avatar-size;
+  border-radius: 50%;
+}
+
+.user-menu-user-user-name{
+  font-weight: bold;
+}

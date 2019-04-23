@@ -1,0 +1,10 @@
+<img *ngIf="user?.photoURL; else avatarPlaceholder" [src]="user?.photoURL"
+     class="avatar" alt="avatar do usuário" i18n-alt>
+<ng-template #avatarPlaceholder>
+  <mat-icon class="avatar">account_circle</mat-icon>
+</ng-template>
+
+<p class="user-info">
+  <span class="user-menu-user-name">{{ user?.displayName }}</span>
+  <span class="user-menu-user-email">{{ user?.email }}</span>
+</p>

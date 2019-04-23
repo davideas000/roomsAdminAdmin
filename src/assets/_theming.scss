@@ -1,4 +1,5 @@
 @import '../app/main/header/shared/overlay-panel/_overlay-panel-theme';
+@import '../app/main/header/user-menu/user-menu-user/user-menu-user-theme';
 
 @mixin backdropbg ($background) {
 
@@ -74,5 +75,6 @@
   @include ra-logo-theme($theme);
   @include ra-message-panel-theme($theme);
   @include ra-overlay-spinner-theme($theme);
+  @include ra-user-menu-user-theme($theme);
   @include ra-overlay-panel-theme($theme);
 }

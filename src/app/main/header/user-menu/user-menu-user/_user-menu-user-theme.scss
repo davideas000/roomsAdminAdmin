@@ -1,0 +1,12 @@
+@mixin ra-user-menu-user-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $primary: map-get($theme, primary);
+
+  ra-user-menu-user {
+    background-color: mat-color($primary);
+  }
+
+  .user-menu-user-user-email {
+    color: mat-color($foreground, secondary-text);
+  }
+}
