@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatFormFieldModule, MatInputModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatProgressSpinnerModule, MatIconModule, MatListModule } from '@angular/material';
 import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
@@ -13,6 +13,8 @@ import { PortalModule } from '@angular/cdk/portal';
     MatSlideToggleModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    MatListModule,
     PortalModule
   ],
   exports: [
@@ -23,6 +25,8 @@ import { PortalModule } from '@angular/cdk/portal';
     MatSlideToggleModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    MatListModule,
     PortalModule
   ]
 })

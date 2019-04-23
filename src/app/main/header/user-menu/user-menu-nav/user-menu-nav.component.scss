@@ -1,0 +1,24 @@
+.nav-list {
+  padding-top: 0;
+}
+
+.mat-list-item .sign-out {
+  $margin: 3px;
+  margin-left: $margin;
+  margin-right: -$margin;
+}
+
+$toggles-margin-top: 20px;
+.ra-mini-profile-toggles {
+  margin: 20px 16px;
+}
+
+.ra-mini-profile-toggles
+mat-slide-toggle {
+  display: block;
+}
+
+.ra-mini-profile-toggles
+mat-slide-toggle:first-child {
+  margin-bottom: $toggles-margin-top;
+}

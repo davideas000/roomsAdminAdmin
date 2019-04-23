@@ -1,0 +1,22 @@
+<mat-nav-list class="nav-list">
+  <mat-list-item>
+    <mat-icon matListIcon>person_outline</mat-icon>
+    <a matLine i18n>Perfil</a>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon matListIcon>help_outline</mat-icon>
+    <a matLine i18n i18n>Ajuda</a>
+  </mat-list-item>
+  <mat-list-item>
+    <mat-icon matListIcon fontSet="fa"
+              fontIcon="fa-sign-out" class="sign-out"></mat-icon>
+    <a matLine i18n i18n="logout">Sair</a>
+  </mat-list-item>
+</mat-nav-list>
+<mat-divider></mat-divider>
+<div class="ra-mini-profile-toggles">
+  <mat-slide-toggle
+      (change)="toggleDarkTheme()"
+      [checked]="theme.isDarkTheme"
+      i18n="dark mode toggle">Tema escuro</mat-slide-toggle>
+</div>
