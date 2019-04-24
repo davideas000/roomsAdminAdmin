@@ -1,0 +1,17 @@
+button {
+  $size: 40px;
+  height: $size;
+  width: $size;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.avatar {
+  $size: 100%;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}

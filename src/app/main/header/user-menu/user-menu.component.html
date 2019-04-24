@@ -1,0 +1,11 @@
+<button matRipple [raOverlayPanelTriggerFor]="userMenuPanel">
+  <img
+      class="avatar"
+      alt="foto do usuário"
+      [src]="this.user?.photoURL"
+      i18n-alt>
+</button>
+<ra-overlay-panel #userMenuPanel>
+  <ra-user-menu-user [user]="user"></ra-user-menu-user>
+  <ra-user-menu-nav></ra-user-menu-nav>
+</ra-overlay-panel>

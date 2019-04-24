@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatFormFieldModule, MatInputModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatProgressSpinnerModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatSidenavModule, MatButtonModule, MatSlideToggleModule, MatCardModule, MatProgressSpinnerModule, MatIconModule, MatListModule, MatRippleModule } from '@angular/material';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 
@@ -17,7 +17,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatIconModule,
     MatListModule,
     PortalModule,
-    OverlayModule
+    OverlayModule,
+    MatRippleModule
   ],
   exports: [
     MatSidenavModule,
@@ -29,7 +30,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatProgressSpinnerModule,
     MatIconModule,
     MatListModule,
-    PortalModule
+    PortalModule,
+    MatRippleModule
   ]
 })
 export class RaAngularMaterialModule { }
