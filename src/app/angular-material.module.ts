@@ -31,6 +31,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatIconModule,
     MatListModule,
     PortalModule,
+    OverlayModule,
     MatRippleModule
   ]
 })
