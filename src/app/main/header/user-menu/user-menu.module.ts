@@ -6,6 +6,7 @@ import { RaUserMenuUserComponent } from './user-menu-user/user-menu-user.compone
 import { OverlayPanelModule } from '../shared/overlay-panel/overlay-panel.module';
 import { RaAngularMaterialModule } from 'src/app/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [RaUserMenuComponent, RaUserMenuNavComponent, RaUserMenuUserComponent],
@@ -13,7 +14,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     RaAngularMaterialModule,
     OverlayPanelModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [RaUserMenuComponent]
 })
