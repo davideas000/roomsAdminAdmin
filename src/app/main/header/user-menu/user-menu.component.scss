@@ -1,17 +1,10 @@
-button {
-  $size: 40px;
-  height: $size;
-  width: $size;
+.menu-trigger {
   background-color: transparent;
+  color: inherit;
+  font-size: 1px !important;
   border-radius: 50%;
   border: none;
   outline: none;
   padding: 0;
-}
-
-.avatar {
-  $size: 100%;
-  width: $size;
-  height: $size;
-  border-radius: 50%;
+  margin: 0;
 }
