@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RaUserMenuUserComponent } from './user-menu-user.component';
 
 @Component({selector: 'mat-icon', template: ''}) class FakeMatIcon {}
+
+@Component({selector: 'ra-user-photo', template: ''})
+class FakeUserPhoto{ @Input() photoURL }
 
 describe('RaUserMenuUserComponent', () => {
   let component: RaUserMenuUserComponent;
@@ -11,7 +14,7 @@ describe('RaUserMenuUserComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RaUserMenuUserComponent, FakeMatIcon ]
+      declarations: [ RaUserMenuUserComponent, FakeMatIcon, FakeUserPhoto ]
     })
       .compileComponents();
   }));
@@ -39,10 +42,6 @@ describe('RaUserMenuUserComponent', () => {
     component.user = userStub;
     fixture.detectChanges();
 
-    let imgEl: HTMLImageElement = fixture.nativeElement
-      .querySelector('img');
-    expect(imgEl.src).toMatch(`.*${userStub.photoURL}$`);
-
     let userEls: NodeList = fixture.nativeElement
       .querySelectorAll('.user-info span');
 
@@ -51,20 +50,4 @@ describe('RaUserMenuUserComponent', () => {
     expect(userEls[1].textContent).toBe(userStub.email);
   });
 
-  it('should display photo placeholder when `user.photoURL` is `null`',
-     () => {
-       let userStub = {
-         _id: 'userid',
-         name: 'username',
-         role: 'userrole',
-         displayName: 'user display name',
-         email: 'useremail',
-       };
-
-       component.user = userStub;
-       fixture.detectChanges();
-       const photoPlaceholder = fixture.nativeElement
-         .querySelector('mat-icon.avatar');
-       expect(photoPlaceholder).toBeTruthy();
-     });
 });

@@ -5,13 +5,15 @@ import { RaUserMenuNavComponent } from './user-menu-nav/user-menu-nav.component'
 import { RaUserMenuUserComponent } from './user-menu-user/user-menu-user.component';
 import { OverlayPanelModule } from '../shared/overlay-panel/overlay-panel.module';
 import { RaAngularMaterialModule } from 'src/app/angular-material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [RaUserMenuComponent, RaUserMenuNavComponent, RaUserMenuUserComponent],
   imports: [
     CommonModule,
     RaAngularMaterialModule,
-    OverlayPanelModule
+    OverlayPanelModule,
+    SharedModule
   ],
   exports: [RaUserMenuComponent]
 })
