@@ -1,0 +1,5 @@
+<img *ngIf="photoURL; else avatarPlaceholder" [src]="photoURL"
+     [ngStyle]="styles" alt="foto do usuário" i18n-alt>
+<ng-template #avatarPlaceholder>
+  <mat-icon [ngStyle]="styles">account_circle</mat-icon>
+</ng-template>
