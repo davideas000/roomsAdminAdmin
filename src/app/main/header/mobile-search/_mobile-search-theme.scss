@@ -1,0 +1,19 @@
+@mixin ra-mobile-search-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $backdrop-color: invert(mat-color($background, card, 0.6));
+  $accent: map-get($theme, accent);
+
+  ra-mobile-search .search-results {
+    background-color: mat-color($background, card);
+  }
+
+  ra-mobile-search .backdrop {
+    background-color: $backdrop-color;
+  }
+
+  ra-mobile-search .ra-mobile-search-highlight {
+    font-weight: bold;
+  }
+
+}

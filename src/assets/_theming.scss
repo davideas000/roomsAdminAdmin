@@ -1,5 +1,6 @@
 @import '../app/main/header/shared/overlay-panel/_overlay-panel-theme';
 @import '../app/main/header/user-menu/user-menu-user/user-menu-user-theme';
+@import '../app/main/header/mobile-search/mobile-search-theme';
 @import '../app/main/header/mobile-search/mobile-search-input/_mobile-search-input-theme';
 
 @mixin backdropbg ($background) {
@@ -78,5 +79,6 @@
   @include ra-overlay-spinner-theme($theme);
   @include ra-user-menu-user-theme($theme);
   @include ra-overlay-panel-theme($theme);
+  @include ra-mobile-search-theme($theme);
   @include ra-mobile-search-input-theme($theme);
 }

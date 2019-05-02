@@ -1,0 +1,40 @@
+<button mat-icon-button (click)="openSearch()">
+  <mat-icon>search</mat-icon>
+</button>
+<div *ngIf="opened" class="search-panel">
+  <mat-card class="field-wrapper">
+    <button mat-icon-button class="btns" (click)="closeSearch()">
+      <mat-icon>arrow_backward</mat-icon>
+    </button>
+    <ra-mobile-search-input
+        #search
+        class="search"
+        (raChange)="searchRoom(search.value)">
+    </ra-mobile-search-input>
+    <button mat-icon-button class="btns"
+            (click)="search.reset(); search.focus()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-card>
+  <div class="search-results">
+    <ra-message-panel
+        *ngIf="error; else results"
+        (close)="hideError()"
+        i18n>
+      Algo deu errado, verifique sua conexão e tente novamente
+    </ra-message-panel>
+    <ng-template #results>
+      <mat-nav-list *ngIf="searchResults.length && !searching">
+        <a class="room" *ngFor="let room of searchResults" mat-list-item
+           [routerLink]="['/main/room/', room.id]">
+          <span [innerHTML]="room.name"></span>
+        </a>
+      </mat-nav-list>
+      <mat-spinner
+          class="spinner"
+          [diameter]="40"
+          *ngIf="searching"></mat-spinner>
+    </ng-template>
+  </div>
+  <div class="backdrop" (click)="closeSearch()"></div>
+</div>
