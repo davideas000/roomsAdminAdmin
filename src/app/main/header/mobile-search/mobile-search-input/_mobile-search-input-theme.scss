@@ -1,0 +1,17 @@
+@mixin ra-mobile-search-input-theme($theme) {
+  $foreground: map-get($theme, foreground);
+
+  ra-mobile-search-input .input-search {
+    color: mat-color($foreground, text);
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  ra-mobile-search-input .input-search::-webkit-search-decoration,
+  ra-mobile-search-input .input-search::-webkit-search-cancel-button,
+  ra-mobile-search-input .input-search::-webkit-search-results-button,
+  ra-mobile-search-input .input-search::-webkit-search-results-decoration {
+    display: none;
+  }
+}
