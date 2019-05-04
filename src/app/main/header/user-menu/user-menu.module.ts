@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RaUserMenuComponent } from './user-menu.component';
 import { RaUserMenuNavComponent } from './user-menu-nav/user-menu-nav.component';
 import { RaUserMenuUserComponent } from './user-menu-user/user-menu-user.component';
-import { OverlayPanelModule } from '../shared/overlay-panel/overlay-panel.module';
 import { RaAngularMaterialModule } from 'src/app/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RouterModule } from '@angular/router';
@@ -13,7 +12,6 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RaAngularMaterialModule,
-    OverlayPanelModule,
     SharedModule,
     RouterModule
   ],
