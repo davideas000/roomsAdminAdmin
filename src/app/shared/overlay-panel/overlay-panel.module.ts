@@ -12,4 +12,4 @@ import { RaAngularMaterialModule } from 'src/app/angular-material.module';
   ],
   exports: [RaOverlayPanelComponent, RaOverlayPanelTriggerDirective]
 })
-export class OverlayPanelModule { }
+export class RaOverlayPanelModule { }
