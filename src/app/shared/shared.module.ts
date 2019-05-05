@@ -9,11 +9,25 @@ import { RaOverlayPanelModule } from './overlay-panel/overlay-panel.module';
 import { RaRelativeTimePipe } from './relative-time.pipe';
 
 @NgModule({
-  declarations: [RaLogoComponent, RaMessagePanelComponent, RaOverlaySpinnerComponent, RaUserPhotoComponent, RaRelativeTimePipe],
+  declarations: [
+    RaLogoComponent,
+    RaMessagePanelComponent,
+    RaOverlaySpinnerComponent,
+    RaUserPhotoComponent,
+    RaRelativeTimePipe
+  ],
   imports: [
     CommonModule,
-    RaAngularMaterialModule, RaOverlayPanelModule
+    RaAngularMaterialModule,
+    RaOverlayPanelModule
   ],
-  exports: [RaLogoComponent, RaMessagePanelComponent, RaOverlaySpinnerComponent, RaUserPhotoComponent, RaOverlayPanelModule, RaRelativeTimePipe]
+  exports: [
+    RaLogoComponent,
+    RaMessagePanelComponent,
+    RaOverlaySpinnerComponent,
+    RaUserPhotoComponent,
+    RaOverlayPanelModule,
+    RaRelativeTimePipe
+  ]
 })
 export class SharedModule { }
