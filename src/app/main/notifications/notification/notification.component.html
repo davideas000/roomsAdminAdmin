@@ -1,0 +1,20 @@
+<ng-container [ngSwitch]="notification?.category">
+  <mat-icon
+      *ngSwitchCase="'rejected-reservation'"
+      fontSet="fa" fontIcon="fa-calendar-times-o"
+      class="icon ra-notification-rejected"></mat-icon>
+  <mat-icon
+      *ngSwitchCase="'removed-reservation'"
+      fontSet="fa" fontIcon="fa-calendar-minus-o"
+      class="icon ra-notification-removed"></mat-icon>
+  <mat-icon
+      *ngSwitchCase="'approved-reservation'"
+      fontSet="fa" fontIcon="fa-calendar-check-o"
+      class="icon ra-notification-approved"></mat-icon>
+</ng-container>
+
+<p class="message"><span>{{ notification?.message }}</span>
+  <span
+      class="ra-notification-date"
+  >{{ notification?.createdAt | relativeTime:'pt' }}</span>
+</p>

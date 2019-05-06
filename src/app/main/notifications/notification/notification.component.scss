@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  $size: 1.4rem;
+  width: $size;
+  height: $size;
+  font-size: $size;
+}
+
+.message {
+  margin: 0;
+  margin-left: 16px;
+  font-size: inherit;
+}
+
+.ra-notification-date {
+  display: block;
+}

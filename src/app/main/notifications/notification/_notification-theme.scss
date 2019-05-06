@@ -1,0 +1,20 @@
+@mixin ra-notification-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $warn: map-get($theme, warn);
+
+  .ra-notification-date {
+    color: mat-color($foreground, secondary-text);
+  }
+
+  .ra-notification-rejected {
+    color: mat-color($warn);
+  }
+
+  .ra-notification-removed {
+    color: mat-color($mat-purple, 300);
+  }
+
+  .ra-notification-approved {
+    color: mat-color($mat-light-green, 600);
+  }
+}

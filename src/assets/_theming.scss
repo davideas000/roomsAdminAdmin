@@ -2,6 +2,7 @@
 @import '../app/main/header/user-menu/user-menu-user/user-menu-user-theme';
 @import '../app/main/header/mobile-search/mobile-search-theme';
 @import '../app/main/header/mobile-search/mobile-search-input/_mobile-search-input-theme';
+@import '../app/main/notifications/notification/notification-theme';
 
 @mixin backdropbg ($background) {
 
@@ -81,4 +82,5 @@
   @include ra-overlay-panel-theme($theme);
   @include ra-mobile-search-theme($theme);
   @include ra-mobile-search-input-theme($theme);
+  @include ra-notification-theme($theme);
 }
