@@ -1,0 +1,54 @@
+<ng-container *ngIf="images.length > 0; else placeholder">
+  <img class="image"
+       alt="foto do espaço"
+       i18n-alt
+       [src]="images[pos]"/>
+
+  <div class="controls">
+    <a matRipple tabindex="0"
+       (click)="toggleOverlay()"
+       class="ra-image-slideshow-overlay-toggle"></a>
+
+    <button class="ra-image-slideshow-btn" tabindex="0"
+            matRipple
+            (click)="backward()" >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+    <button class="ra-image-slideshow-btn btn-forward" tabindex="0"
+            matRipple
+            (click)="forward()" >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <div class="overlay" *ngIf="showOverlay">
+    <div class="controls">
+      <a (click)="toggleOverlay()"
+         class="ra-image-slideshow-backdrop"></a>
+
+      <button class="ra-image-slideshow-btn close-btn" tabindex="0"
+              matRipple
+              (click)="toggleOverlay()" >
+        <mat-icon>close</mat-icon>
+      </button>
+
+      <button class="ra-image-slideshow-btn" tabindex="0"
+              matRipple
+              (click)="backward()" >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+
+      <button class="ra-image-slideshow-btn btn-forward" tabindex="0"
+              matRipple
+              (click)="forward()" >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+    <img class="overlay-img"
+         alt="foto do espaço" i18n-alt [src]="images[pos]"/>
+  </div>
+</ng-container>
+
+<ng-template #placeholder>
+  <ra-image-placeholder></ra-image-placeholder>
+</ng-template>

@@ -1,0 +1,30 @@
+@mixin ra-image-slideshow-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  .ra-image-slideshow-btn {
+
+    $color: mat-color($foreground, text);
+    color: $color;
+
+    $opacity: 0.2;
+    $backdrop-color: mat-color($background, card, $opacity);
+    background-color: $backdrop-color;
+
+    &:hover, &:focus {
+      background-color: invert($backdrop-color);
+      color: invert($color);
+    }
+  }
+
+  .ra-image-slideshow-overlay-toggle {
+    &:hover, &:focus {
+      background-color: mat-color($background, "hover");
+    }
+  }
+
+  .ra-image-slideshow-backdrop {
+    background-color: invert(mat-color($background, card, 0.6));
+  }
+
+}

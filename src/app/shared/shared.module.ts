@@ -7,6 +7,7 @@ import { RaAngularMaterialModule } from '../angular-material.module';
 import { RaUserPhotoComponent } from './user-photo/user-photo.component';
 import { RaOverlayPanelModule } from './overlay-panel/overlay-panel.module';
 import { RaRelativeTimePipe } from './relative-time.pipe';
+import { RaImageSlideshowComponent } from './image-slideshow/image-slideshow.component';
 import { RaImagePlaceholderComponent } from './image-placeholder/image-placeholder.component';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { RaImagePlaceholderComponent } from './image-placeholder/image-placehold
     RaOverlaySpinnerComponent,
     RaUserPhotoComponent,
     RaRelativeTimePipe,
+    RaImageSlideshowComponent,
     RaImagePlaceholderComponent
   ],
   imports: [
@@ -30,6 +32,7 @@ import { RaImagePlaceholderComponent } from './image-placeholder/image-placehold
     RaUserPhotoComponent,
     RaOverlayPanelModule,
     RaRelativeTimePipe,
+    RaImageSlideshowComponent,
     RaImagePlaceholderComponent
   ]
 })
