@@ -7,6 +7,7 @@ import { RaAngularMaterialModule } from '../angular-material.module';
 import { RaUserPhotoComponent } from './user-photo/user-photo.component';
 import { RaOverlayPanelModule } from './overlay-panel/overlay-panel.module';
 import { RaRelativeTimePipe } from './relative-time.pipe';
+import { RaImagePlaceholderComponent } from './image-placeholder/image-placeholder.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RaRelativeTimePipe } from './relative-time.pipe';
     RaMessagePanelComponent,
     RaOverlaySpinnerComponent,
     RaUserPhotoComponent,
-    RaRelativeTimePipe
+    RaRelativeTimePipe,
+    RaImagePlaceholderComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { RaRelativeTimePipe } from './relative-time.pipe';
     RaOverlaySpinnerComponent,
     RaUserPhotoComponent,
     RaOverlayPanelModule,
-    RaRelativeTimePipe
+    RaRelativeTimePipe,
+    RaImagePlaceholderComponent
   ]
 })
 export class SharedModule { }

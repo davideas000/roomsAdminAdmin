@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  $size: 100%;
+  height: $size;
+  background-color: #A1A1A1;
+}
+
+.message {
+  text-align: center;
+  margin: 0;
+  color: #666;
+}
