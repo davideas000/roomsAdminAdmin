@@ -1,0 +1,8 @@
+<ra-message-panel
+    (close)="onClose()"
+    [type]="message?.type" i18n>
+  {message?.msgType, select,
+  success {Reserva realizada com sucesso}
+  error {Já existe uma reserva nesse espaço no período especificado}
+  net-error {Ops algo deu errado, por favor, verifique sua conexão com a Internet e tente novamente}}
+</ra-message-panel>
