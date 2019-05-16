@@ -9,6 +9,7 @@ import { RaOverlayPanelModule } from './overlay-panel/overlay-panel.module';
 import { RaRelativeTimePipe } from './relative-time.pipe';
 import { RaImageSlideshowComponent } from './image-slideshow/image-slideshow.component';
 import { RaImagePlaceholderComponent } from './image-placeholder/image-placeholder.component';
+import { RaInputTimeDirective } from './input-time.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RaImagePlaceholderComponent } from './image-placeholder/image-placehold
     RaUserPhotoComponent,
     RaRelativeTimePipe,
     RaImageSlideshowComponent,
-    RaImagePlaceholderComponent
+    RaImagePlaceholderComponent,
+    RaInputTimeDirective
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { RaImagePlaceholderComponent } from './image-placeholder/image-placehold
     RaOverlayPanelModule,
     RaRelativeTimePipe,
     RaImageSlideshowComponent,
-    RaImagePlaceholderComponent
+    RaImagePlaceholderComponent,
+    RaInputTimeDirective
   ]
 })
 export class SharedModule { }
