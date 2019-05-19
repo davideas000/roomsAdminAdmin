@@ -1,0 +1,90 @@
+<div class="form-wrapper">
+
+  <ra-overlay-spinner
+      class="overlay-spinner"
+      *ngIf="processing"></ra-overlay-spinner>
+
+  <form (ngSubmit)="onFormSubmit()"
+        [formGroup]="form">
+    <p class="form-title mat-body-2" i18n>Detalhes da reserva</p>
+
+    <div *ngIf="msgConfig.show"
+         class="message">
+      <ra-new-reservation-message
+          [message]="msgConfig" (close)="onAlertDismiss()"
+      ></ra-new-reservation-message>
+    </div>
+
+    <mat-form-field
+        color="accent"
+        class="roomname" appearance="outline">
+      <mat-label i18n>Espaço</mat-label>
+      <input matInput
+             type="text" formControlName="room">
+    </mat-form-field>
+
+    <div class="fields">
+      <mat-form-field color="accent" class="field" appearance="outline">
+        <mat-label i18n>Data de inicio</mat-label>
+        <mat-hint i18n>Ex: 01/01/2019</mat-hint>
+        <mat-error *ngIf="form.get('startDate').errors?.required" i18n>
+          Entre um valor
+        </mat-error>
+        <input matInput required [matDatepicker]="startDatepicker"
+               formControlName="startDate">
+        <mat-datepicker-toggle
+            [for]="startDatepicker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker
+            [touchUi]="responsive.isActive('xs')"
+            #startDatepicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field color="accent" class="field" appearance="outline">
+        <mat-label i18n>Data de termino</mat-label>
+        <mat-hint i18n>Ex: 01/01/2019</mat-hint>
+        <mat-error *ngIf="form.get('endDate').errors?.required" i18n>
+          Entre um valor
+        </mat-error>
+        <input matInput required [matDatepicker]="endDatepicker"
+               formControlName="endDate">
+        <mat-datepicker-toggle
+            [for]="endDatepicker" matSuffix></mat-datepicker-toggle>
+        <mat-datepicker
+            [touchUi]="responsive.isActive('xs')"
+            #endDatepicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field color="accent" class="field" appearance="outline">
+        <mat-label i18n>Horário de inicio</mat-label>
+        <mat-hint i18n>Ex: 08:30</mat-hint>
+        <mat-error *ngIf="form.get('startTime').errors?.required" i18n>
+          Entre um valor
+        </mat-error>
+        <input matInput required [raInputTime]="form.get('startTime')"
+               type="text" formControlName="startTime" >
+      </mat-form-field>
+      <mat-form-field color="accent" class="field" appearance="outline">
+        <mat-label i18n>Horário de termino</mat-label>
+        <mat-hint i18n>Ex: 08:30</mat-hint>
+        <mat-error *ngIf="form.get('endTime').errors?.required" i18n>
+          Entre um valor
+        </mat-error>
+        <input matInput required [raInputTime]="form.get('endTime')"
+               type="text" formControlName="endTime">
+      </mat-form-field>
+      <mat-form-field
+          color="accent"
+          class="reason-field field"
+          appearance="outline">
+        <mat-label i18n>Motivo (opcional)</mat-label>
+        <textarea matInput formControlName="reason"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="field form-btns">
+      <button mat-stroked-button type="button"
+              (click)="cancel()" i18n>Cancelar</button>
+      <button mat-stroked-button type="submit"
+              [disabled]="!form.valid"
+              i18n>Reservar espaço</button>
+    </div>
+  </form>
+</div>

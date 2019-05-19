@@ -1,0 +1,64 @@
+@import '../../../../assets/scss/breakpoints';
+
+::-moz-focus-inner {border: 0}
+
+.form-wrapper {
+  position: relative;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .fields {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.field {
+  flex: 1;
+}
+
+.roomname {
+  width: 100%;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+
+  .field:nth-of-type(odd) {
+    margin-right: 40px;
+  }
+
+  .field:last-child {
+    margin-right: 0;
+  }
+
+}
+
+.form-title {
+  text-align: left;
+  // font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form-btns {
+  text-align: right;
+
+  button:first-child {
+    margin-right: 10px;
+  }
+}
+
+.overlay-spinner {
+  margin: -30px;
+  border-radius: 4px;
+}
+
+.message {
+  margin: 20px 0;
+}
