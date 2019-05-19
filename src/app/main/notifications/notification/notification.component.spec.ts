@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NotificationComponent } from './notification.component';
 import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { RaNotificationStatus, RaNotificationCategory } from 'src/app/models/notification.model';
 
 @Component({selector: 'mat-icon', template: ''})
 class FakeMatIconComponent {}
@@ -33,8 +34,8 @@ describe('NotificationComponent', () => {
     const notificationStub = {
       _id: 'notificationid',
       message: 'notification message',
-      status: 'unread',
-      category: 'approved-reservation',
+      status: RaNotificationStatus.unread,
+      category: RaNotificationCategory.approvedReservation,
       createdAt: new Date()
     };
 
@@ -59,8 +60,8 @@ describe('NotificationComponent', () => {
        const notificationStub = {
          _id: 'notificationid',
          message: 'notification message',
-         status: 'unread',
-         category: 'approved-reservation',
+         status: RaNotificationStatus.unread,
+         category: RaNotificationCategory.approvedReservation,
          createdAt: new Date()
        };
        component.notification = notificationStub;
@@ -74,14 +75,14 @@ describe('NotificationComponent', () => {
          .toBeTruthy();
 
        // case #notification.category === 'removed-reservation'
-       component.notification.category = 'removed-reservation';
+       component.notification.category = RaNotificationCategory.removedReservation;
        fixture.detectChanges();
        iconEl = fixture.nativeElement.querySelector('mat-icon');
        expect(iconEl.classList.contains('ra-notification-removed'))
          .toBeTruthy();
 
        // case #notification.category === 'rejected-reservation'
-       component.notification.category = 'rejected-reservation';
+       component.notification.category = RaNotificationCategory.rejectedReservation;
        fixture.detectChanges();
        iconEl = fixture.nativeElement.querySelector('mat-icon');
        expect(iconEl.classList.contains('ra-notification-rejected'))
