@@ -48,8 +48,10 @@ export class RaApiService {
     );
   }
 
-  getNotifications$(): Observable<RaNotification[]> {
-    return this._get('notifications');
+  getNotifications$(limit?: number): Observable<RaNotification[]> {
+    const url = limit && `notifications?limit=${limit}`
+      || 'notifications';
+    return this._get(url);
   }
 
   markNotificationsAsRead$(): Observable<any> {

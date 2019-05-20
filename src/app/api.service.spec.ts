@@ -26,6 +26,7 @@ describe('RaApiService', () => {
   it('#getNotification$() should do a request to the \'/notifications\' api route',
      inject([RaApiService], (service: RaApiService) => {
        const stubData = {result: "notifications"};
+       // without argument
        service.getNotifications$()
          .subscribe(
            r => {
@@ -33,10 +34,27 @@ describe('RaApiService', () => {
            }
          );
 
-       const req = httpTestingController.expectOne(`${environment.apiUrl}/notifications`)
+       let req = httpTestingController.expectOne(`${environment.apiUrl}/notifications`)
        expect(req.request.method).toBe('GET');
        expect(req.request.headers.get('Authorization')).toBeTruthy();
        req.flush(stubData);
+
+       // with argument
+       const limitStub = 5;
+       service.getNotifications$(limitStub)
+         .subscribe(
+           r => {
+             expect(r).toEqual(stubData as any);
+           }
+         );
+
+       req = httpTestingController.expectOne(
+         `${environment.apiUrl}/notifications?limit=${limitStub}`
+       );
+       expect(req.request.method).toBe('GET');
+       expect(req.request.headers.get('Authorization')).toBeTruthy();
+       req.flush(stubData);
+
        httpTestingController.verify();
      }));
 
