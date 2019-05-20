@@ -24,7 +24,7 @@ export class RaResponsiveService {
   private checkWidth() {
     const vwidth = window.innerWidth;
     if (vwidth < 599) {
-      this.currentMedia = 'sm';
+      this.currentMedia = 'xs';
     } else if (vwidth < 969) {
       this.currentMedia = 'md';
     } else {
