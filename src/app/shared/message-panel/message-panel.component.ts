@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class RaMessagePanelComponent implements OnInit {
   @Output() close = new EventEmitter<boolean>();
   @Input() type = 'error';
+  @Input() closeButton = true;
 
   constructor() { }
 

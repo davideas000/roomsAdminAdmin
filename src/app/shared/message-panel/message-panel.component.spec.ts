@@ -43,4 +43,19 @@ describe('RaMessagePanelComponent', () => {
       .querySelector('div.message-panel-success');
     expect(container).toBeTruthy();
   });
+
+  it('#closeButton should hide/show close button', () => {
+    // default to true
+    let btnEl: HTMLButtonElement = fixture.nativeElement
+      .querySelector('button');
+    expect(btnEl).toBeTruthy();
+
+    component.closeButton = false;
+    fixture.detectChanges();
+
+    btnEl = fixture.nativeElement
+      .querySelector('button');
+    expect(btnEl).toBeFalsy();
+  });
+
 });

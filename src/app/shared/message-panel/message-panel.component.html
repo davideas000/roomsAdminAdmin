@@ -3,5 +3,7 @@
   <p class="message mat-body">
     <ng-content></ng-content>
   </p>
-  <button (click)="closeEvent()" class="btn"><span>x</span></button>
+  <button
+      *ngIf="closeButton"
+      (click)="closeEvent()" class="btn"><span>x</span></button>
 </div>
