@@ -1,0 +1,9 @@
+@mixin ra-notifications-panel-theme($theme) {
+  $background: map-get($theme, background);
+
+  .ra-notifications-panel-a {
+    &:hover, &:focus {
+      background: mat-color($background, 'hover');
+    }
+  }
+}

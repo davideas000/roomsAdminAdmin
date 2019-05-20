@@ -1,0 +1,35 @@
+<button mat-icon-button
+        (click)="markNotificationsAsRead()"
+        [raOverlayPanelTriggerFor]="notificationsPanel">
+  <mat-icon
+      matBadgeColor="accent"
+      [matBadgeHidden]="numUnreadNotifications === 0"
+      [matBadge]="numUnreadNotifications">notifications</mat-icon>
+</button>
+<ra-overlay-panel #notificationsPanel>
+  <ul *ngIf="!error && notifications?.length !== 0; else emptyMessage" class="notifications-list">
+    <li *ngFor="let notification of notifications">
+      <a class="ra-notifications-panel-a" matRipple
+         [routerLink]="['/main/notifications', notification._id]">
+        <ra-notification [notification]="notification"></ra-notification>
+      </a>
+    </li>
+    <li>
+      <a class="ra-notifications-panel-a center-text" matRipple
+         routerLink="/main/notifications/all"
+         i18n>Todas as notificações</a>
+    </li>
+  </ul>
+  <ng-template #emptyMessage>
+    <p class="center-text" *ngIf="!error && notifications?.length === 0"
+       i18n>
+      Não há notificações
+    </p>
+    <ra-message-panel
+        [closeButton]="false"
+        *ngIf="error" i18n>
+      Ops, algo deu errado, verifique sua conexão com <br>a Internet
+      e tente novamente
+    </ra-message-panel>
+  </ng-template>
+</ra-overlay-panel>
