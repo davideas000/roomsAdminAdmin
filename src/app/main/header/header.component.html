@@ -1,0 +1,25 @@
+<mat-toolbar class="header mat-elevation-z2" color="primary">
+  <div class="left-side">
+    <button class="backbutton"
+            mat-icon-button *ngIf="showBackButton; else menuButton"
+            (click)="navigateBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <ng-template #menuButton>
+      <button mat-icon-button (click)="toggleSNav()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </ng-template>
+  </div>
+  <h1 class="title">{{ title }}</h1>
+  <div class="right-side">
+    <ra-notifications-panel
+        *ngIf="showNotificationsIcon"></ra-notifications-panel>
+    <ra-user-menu
+        class="user-menu"
+        *ngIf="!rs.isActive('xs'); else mobileSearch"></ra-user-menu>
+    <ng-template #mobileSearch>
+      <ra-mobile-search></ra-mobile-search>
+    </ng-template>
+  </div>
+</mat-toolbar>
