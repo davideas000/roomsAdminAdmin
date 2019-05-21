@@ -96,6 +96,10 @@ export class RaApiService {
     return this._put(path, {status: 'approved'});
   }
 
+  getRoomById$(roomid: string): Observable<RaRoom> {
+    return this._get(`room/${roomid}`);
+  }
+
   getRoomTypes$(): Observable<any[]> {
     return this._get('rtypes');
   }

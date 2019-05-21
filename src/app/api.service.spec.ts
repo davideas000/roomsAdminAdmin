@@ -281,6 +281,27 @@ describe('RaApiService', () => {
        httpTestingController.verify();
      }));
 
+  it('#getRoomById$() should do a GET request to the server route: '
+     + '/room/:roomid', () =>{
+       const apiService = TestBed.get(RaApiService);
+       let roomStub = {_id: 'roomid', name: 'roomname'};
+       let roomResult: any;
+
+       apiService.getRoomById$(roomStub._id)
+         .subscribe(room => roomResult = room);
+
+       const req = httpTestingController.expectOne(
+         `${environment.apiUrl}/room/${roomStub._id}`);
+       req.flush(roomStub);
+
+       expect(req.request.method).toBe('GET');
+       expect(req.request.headers.get('Authorization')).toBeTruthy();
+       expect(roomResult).toEqual(roomStub);
+
+       httpTestingController.verify();
+
+     });
+
   it('#getRoomTypes() should do a GET request to' +
      'the \'/rtypes\' server route',
      inject([RaApiService], (service: RaApiService) => {
