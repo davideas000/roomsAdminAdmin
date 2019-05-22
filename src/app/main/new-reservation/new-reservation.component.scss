@@ -1,0 +1,38 @@
+@import '../../../assets/scss/breakpoints';
+
+.content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  margin: 10px auto 0;
+  padding: 30px;
+  max-width: 550px;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .card {
+    margin-top: 20px;
+  }
+}
+
+.main {
+  $padding: 10px;
+  padding: 0 $padding $padding;
+  flex: 1;
+  overflow: auto;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .main {
+    $padding: 20px;
+    padding: 0 $padding $padding;
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+}
