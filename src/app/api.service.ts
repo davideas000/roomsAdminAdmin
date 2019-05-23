@@ -82,6 +82,21 @@ export class RaApiService {
     return this._get('reservations?status=pending&op=countdep');
   }
 
+  getReservationsByRoomAndPeriod$(
+    roomid: string,
+    period?: {startDate: string, endDate: string}
+  ): Observable<RaReservation[]> {
+
+    let queryStr = `?by=room&status=pending,approved&room=${roomid}&`;
+    for(let k in period) {
+      if (period[k]) {
+        queryStr += `${k}=${period[k]}&`;
+      }
+    }
+
+    return this._get(`reservations${queryStr}`);
+  }
+
   removeReservation$(reserv: RaReservation, reason: string): Observable<any> {
     const path = `reservation/${reserv._id}`;
     let data: {status: string, reason?: string} = {status: 'removed'}

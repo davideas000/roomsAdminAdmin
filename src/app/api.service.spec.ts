@@ -219,6 +219,30 @@ describe('RaApiService', () => {
        httpTestingController.verify();
      }));
 
+  it('#getReservationsByRoomAndPeriod$() should fetch reservations '
+     + 'from the server', () => {
+       const service: RaApiService = TestBed.get(RaApiService);
+
+       const roomStub = 'roomid';
+       const periodStub = { startDate: '19-19-1111',
+                            endDate: '32-33-2222' };
+       const resultStub = {result: true};
+       let result: any;
+
+       service.getReservationsByRoomAndPeriod$(roomStub, periodStub)
+         .subscribe(r => result = r);
+       const query = `?by=room&status=pending,approved&room=${roomStub}`;
+       const date = `&startDate=${periodStub.startDate}&endDate=${periodStub.endDate}&`;
+       const url = `${environment.apiUrl}/reservations${query}${date}`;
+
+       const req = httpTestingController.expectOne(url);
+       expect(req.request.method).toBe('GET');
+       expect(req.request.headers.get('Authorization')).toBeTruthy();
+       req.flush(resultStub);
+       httpTestingController.verify();
+       expect(result).toEqual(resultStub);
+     });
+
   it('#removeReservation$() should do a PUT request to' +
      'the \'/reservation/:id\' server route for an approved reservation',
      inject([RaApiService], (service: RaApiService) => {
