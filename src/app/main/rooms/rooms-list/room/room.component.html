@@ -1,0 +1,34 @@
+<mat-card class="card">
+  <mat-card-title-group>
+    <mat-card-title>{{ room?.name }}</mat-card-title>
+    <mat-card-subtitle>{{ room?.type }}
+      - {{ room?.department.acronym }}</mat-card-subtitle>
+  </mat-card-title-group>
+  <div mat-card-image>
+    <ra-image-slideshow
+        class="photos"
+        [images]="room?.photos"></ra-image-slideshow>
+  </div>
+  <mat-card-content>
+    <p class="description">{{ room?.description }}</p>
+    <p class="mat-body-2 info-heading" i18n>Detalhes</p>
+    <div class="info">
+      <p>
+        <span class="label" i18n>Largura</span>
+        <span i18n>{{ room?.width }} metros</span>
+      </p>
+      <p>
+        <span class="label" i18n>Comprimento</span>
+        <span i18n>{{ room?.length }} metros</span>
+      </p>
+      <p>
+        <span class="label" i18n>Capacidade</span>
+        <span i18n>{{ room?.capacity }} pessoas</span>
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <a [routerLink]="['/main/new-reservation', {room: room?._id}]" color="accent"
+       mat-stroked-button i18n>Reservar</a>
+  </mat-card-actions>
+</mat-card>
