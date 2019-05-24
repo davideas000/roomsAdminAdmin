@@ -4,6 +4,7 @@
 @import '../app/main/header/mobile-search/mobile-search-input/_mobile-search-input-theme';
 @import '../app/main/notifications/notifications-panel/notifications-panel-theme';
 @import '../app/main/notifications/notification/notification-theme';
+@import '../app/main/reservations/reservations-list/reservation/reservation-theme';
 @import '../app/shared/image-slideshow/image-slideshow-theme';
 
 @mixin backdropbg ($background) {
@@ -86,5 +87,6 @@
   @include ra-mobile-search-input-theme($theme);
   @include ra-notifications-panel-theme($theme);
   @include ra-notification-theme($theme);
+  @include ra-reservation-theme($theme);
   @include ra-image-slideshow-theme($theme);
 }

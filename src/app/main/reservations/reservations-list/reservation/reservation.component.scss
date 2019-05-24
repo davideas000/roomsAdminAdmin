@@ -1,0 +1,37 @@
+:host {
+  display: contents;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card .room-photo {
+  height: 180px;
+}
+
+mat-card-actions {
+  margin-top: auto;
+}
+
+.room-photo-placeholder {
+  @extend .room-photo;
+  border: 1px solid;
+  margin: 0;
+}
+
+mat-card-content {
+  word-spacing: .11243em;
+}
+
+.r-label {
+  font-weight: bold;
+  display: block;
+}
+
+.ra-reservation-title {
+  outline: 0;
+  text-decoration: none;
+  color: inherit;
+}
