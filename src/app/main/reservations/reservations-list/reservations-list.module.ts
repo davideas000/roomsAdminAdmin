@@ -4,9 +4,11 @@ import { RouterModule } from '@angular/router';
 import { RaAngularMaterialModule } from 'src/app/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RaReservationComponent } from './reservation/reservation.component';
+import { RaReservationsListComponent } from './reservations-list.component';
 
 @NgModule({
   declarations: [
+    RaReservationsListComponent,
     RaReservationComponent
   ],
   imports: [
@@ -16,6 +18,7 @@ import { RaReservationComponent } from './reservation/reservation.component';
     SharedModule
   ],
   exports: [
+    RaReservationsListComponent,
     RaReservationComponent
   ]
 })
