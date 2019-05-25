@@ -1,0 +1,10 @@
+<ul [class.list]="listtype === 'list'">
+  <li *ngFor="let reservation of reservations">
+    <ra-reservation
+        [showPhoto]="listtype != 'list'"
+        [showTitle]="showTitle"
+        [showStatus]="showStatus"
+        [showActions]="showActions"
+        [reservation]="reservation"></ra-reservation>
+  </li>
+</ul>

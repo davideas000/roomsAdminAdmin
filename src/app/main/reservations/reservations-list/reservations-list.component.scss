@@ -1,0 +1,20 @@
+$grid-column-width: 289px;
+$gap: 10px;
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $grid-column-width);
+  grid-gap: $gap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+ul.list {
+  grid-template-columns: minmax(auto, 2.5 * $grid-column-width);
+}
+
+li {
+  display: contents;
+}
