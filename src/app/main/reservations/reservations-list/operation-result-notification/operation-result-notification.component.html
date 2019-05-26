@@ -1,0 +1,19 @@
+<div class="error" *ngIf="config.type === 'error'; else main">
+  <ra-message-panel
+      [closeButton]="false"
+      i18n>Ops, algo deu errado, por favor, verifique sua conexão
+    com a Internet e tente novamente</ra-message-panel>
+  <button
+      (click)="close()"
+      mat-stroked-button
+      i18n>Fechar</button>
+</div>
+<ng-template #main>
+  <p i18n>Reserva
+    {config.type,
+    select,
+    removed {removida}
+    approved {aprovada}
+    rejected {rejeitada}}
+    com sucesso</p>
+</ng-template>
