@@ -1,0 +1,31 @@
+<h2 mat-dialog-title i18n>{
+  config.type,
+  select,
+  reject {Rejeitar}
+  approve {Aprovar}
+  remove {Remover}
+  } reserva</h2>
+
+<mat-dialog-content *ngIf="config.type !== 'approve'">
+  <p *ngIf="config.showMessage"
+     i18n>Remover a reserva deixará o espaço disponivel</p>
+  <mat-form-field *ngIf="config.showTextarea" appearance="outline">
+    <mat-label i18n>Motivo (opcional)</mat-label>
+    <textarea matInput [formControl]="reason"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <div class="btns-wrapper">
+    <button mat-stroked-button mat-dialog-close i18n>Cancelar</button>
+    <button
+        mat-stroked-button
+        [mat-dialog-close]="[true, reason.value]"
+        i18n>
+      {config.type,
+      select,
+      remove{Remover}
+      reject{Rejeitar}
+      approve{Aprovar}}</button>
+  </div>
+</mat-dialog-actions>

@@ -15,6 +15,7 @@ import {
   MatDatepickerModule,
   MatBadgeModule,
   MatChipsModule,
+  MatDialogModule,
   MatSnackBarModule
 } from '@angular/material';
 import { PortalModule } from '@angular/cdk/portal';
@@ -41,6 +42,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatMomentDateModule,
     MatBadgeModule,
     MatChipsModule,
+    MatDialogModule,
     MatSnackBarModule
   ],
   exports: [
@@ -61,6 +63,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatMomentDateModule,
     MatBadgeModule,
     MatChipsModule,
+    MatDialogModule,
     MatSnackBarModule
   ]
 })
