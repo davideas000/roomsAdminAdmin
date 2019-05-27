@@ -97,7 +97,7 @@ export class RaApiService {
     return this._get(`reservations${queryStr}`);
   }
 
-  removeReservation$(reserv: RaReservation, reason: string): Observable<any> {
+  removeReservation$(reserv: RaReservation, reason?: string): Observable<any> {
     const path = `reservation/${reserv._id}`;
     let data: {status: string, reason?: string} = {status: 'removed'}
     if (reason) {
