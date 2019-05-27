@@ -3,23 +3,28 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RaHeaderComponent } from './header.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Location } from '@angular/common';
-import { Title } from '@angular/platform-browser';
 import { RaResponsiveService } from 'src/app/responsive.service';
+import { RaHeaderTitleService } from './header-title.service';
+import { of, ReplaySubject } from 'rxjs';
 
 describe('RaHeaderComponent', () => {
   let component: RaHeaderComponent;
   let fixture: ComponentFixture<RaHeaderComponent>;
+  let dumbTitle = 'dumb title';
 
   beforeEach(async(() => {
     const locationSpy = jasmine.createSpyObj('Location', ['back']);
-    const titleSpy = jasmine.createSpyObj('Title', ['getTitle']);
+    const headerTitleSpy = jasmine
+      .createSpyObj('RaHeaderTitleService', ['']);
+    // this is necessary to avoid error at initialization
+    headerTitleSpy.headerTitle$ = of(dumbTitle) as ReplaySubject<string>;
     const responsiveSpy = jasmine.createSpyObj(
       'RaResponsiveService', ['isActive']);
     TestBed.configureTestingModule({
       declarations: [ RaHeaderComponent ],
       providers: [
         {provide: Location, useValue: locationSpy},
-        {provide: Title, useValue: titleSpy},
+        {provide: RaHeaderTitleService, useValue: headerTitleSpy},
         {provide: RaResponsiveService, useValue: responsiveSpy}
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
@@ -37,19 +42,11 @@ describe('RaHeaderComponent', () => {
   });
 
   it('should get title on initialization', () => {
-    const titleSpy = fixture.debugElement.injector
-      .get(Title) as jasmine.SpyObj<Title>;
-    const titleMock = 'fake title';
-    component.title = titleMock;
-    fixture.detectChanges();
-
     const titleEl: HTMLElement = fixture.nativeElement
       .querySelector('h1.title');
 
     expect(titleEl).toBeTruthy();
-    expect(titleEl.textContent).toBe(titleMock);
-
-    expect(titleSpy.getTitle).toHaveBeenCalledTimes(1);
+    expect(titleEl.textContent).toBe(dumbTitle);
   });
 
   it('#backButton should show/hide `back button', () => {
