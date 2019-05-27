@@ -37,7 +37,7 @@ describe('RaReservationsListComponent', () => {
   });
 
   it('display reservations', () => {
-    let reservationsStub = [
+    let reservationsStub: any = [
       {_id: '001'}, {_id: '002'}, {_id: '003'}, {_id: '004'}
     ];
     component.reservations = reservationsStub;
