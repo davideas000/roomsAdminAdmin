@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { RaReservation } from 'src/app/models/reservation.model';
 
 @Component({
@@ -12,10 +12,15 @@ export class RaReservationComponent implements OnInit {
   @Input() showActions = true;
   @Input() showTitle = true;
   @Input() showStatus = false;
+  @Output() remove = new EventEmitter();
 
   ngOnInit() {
     if (this.showPhoto && !this.reservation.room.photos)
       this.reservation.room.photos = [];
+  }
+
+  onRemove() {
+    this.remove.emit();
   }
 
 }
