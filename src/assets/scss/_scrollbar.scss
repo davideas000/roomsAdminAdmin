@@ -1,0 +1,11 @@
+@mixin set-scrollbar {
+  &::-webkit-scrollbar, mat-sidenav-content.ra-container::-webkit-scrollbar,
+  mat-sidenav.ra-sidenav::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb, mat-sidenav-content.ra-container::-webkit-scrollbar-thumb,
+  mat-sidenav.ra-sidenav::-webkit-scrollbar-thumb {
+    background-color: #999;
+  }
+}
