@@ -1,0 +1,7 @@
+@mixin ra-reservations-list-theme($theme) {
+  $foreground: map-get($theme, foreground);
+
+  .ra-reservations-list-empty-msg {
+    color: mat-color($foreground, secondary-text);
+  }
+}

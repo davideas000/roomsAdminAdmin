@@ -166,4 +166,16 @@ describe('RaReservationsListComponent', () => {
 
      });
 
+  it('should display a message when the reservation list is empty',
+     () => {
+       component.reservations = [];
+       fixture.detectChanges();
+
+       const msg: HTMLElement = fixture.nativeElement
+         .querySelector('.ra-reservations-list-empty-msg');
+
+       expect(msg).toBeTruthy();
+       expect(msg.textContent).toBe('Não há reservas');
+     });
+
 });
