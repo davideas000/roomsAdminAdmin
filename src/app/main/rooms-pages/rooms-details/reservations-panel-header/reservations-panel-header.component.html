@@ -1,0 +1,24 @@
+<div class="reservs-header">
+  <h2 class="reservs-title" i18n>Reservas</h2>
+
+  <div>
+    <button mat-button [matMenuTriggerFor]="menu" i18n>
+      <span>{ menuSelectedItem,
+        select,
+        today{Hoje}
+        month{Este mês}
+        year{Este ano}
+        all{Todos} }</span>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button
+          *ngFor="let menuItem of menuItems"
+          mat-menu-item (click)="filterBy(menuItem)" i18n>
+        { menuItem,
+        select,
+        today{Hoje} month{Este mês} year{Este ano} all{Todos} }
+      </button>
+    </mat-menu>
+  </div>
+</div>
