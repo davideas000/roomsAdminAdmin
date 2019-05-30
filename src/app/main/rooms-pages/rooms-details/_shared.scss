@@ -1,0 +1,9 @@
+@import '../../../../assets/scss/scrollbar';
+
+$max-width-elements: 330px;
+
+@mixin scroll-overflow {
+  overflow: auto;
+  @include set-scrollbar();
+  padding: 2px; // prevents border to hide
+}
