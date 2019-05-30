@@ -4,6 +4,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap, first } from 'rxjs/operators';
 import { RaApiService } from 'src/app/api.service';
 import { RaRoom } from 'src/app/models/room.model';
+import { RaHeaderTitleService } from '../header/header-title.service';
 
 @Component({
   selector: 'ra-new-reservation',
@@ -19,16 +20,18 @@ export class RaNewReservationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private apiService: RaApiService,
-              private title: Title) {}
+              private title: Title,
+              private headerTitle: RaHeaderTitleService) {}
 
   ngOnInit() {
     const pagetitle = this.pageTitle.nativeElement
       .getAttribute('pageTitle');
     this.title.setTitle(pagetitle);
+    this.headerTitle.setTitle(pagetitle);
+
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
-                this.apiService.getRoomById$(params.get('room'))
-               ),
+                this.apiService.getRoomById$(params.get('room'))),
       first()
     ).subscribe((room: RaRoom) => {
       this.room = room;

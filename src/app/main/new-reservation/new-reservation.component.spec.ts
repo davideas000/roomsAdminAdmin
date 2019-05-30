@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RaApiService } from 'src/app/api.service';
 import { of, throwError } from 'rxjs';
 import { Title } from '@angular/platform-browser';
+import { RaHeaderTitleService } from '../header/header-title.service';
 
 describe('RaNewReservationComponent', () => {
   let component: RaNewReservationComponent;
@@ -22,13 +23,16 @@ describe('RaNewReservationComponent', () => {
     apiSpy.getRoomById$.and.returnValue(of(roomStub));
 
     const titleSpy = jasmine.createSpyObj('Title', ['setTitle']);
+    const headerTitleSpy = jasmine.createSpyObj('RaHeaderTitleService',
+                                                ['setTitle']);
 
     TestBed.configureTestingModule({
       declarations: [ RaNewReservationComponent ],
       providers: [
         {provide: ActivatedRoute, useValue: routeSpy},
         {provide: RaApiService, useValue: apiSpy},
-        {provide: Title, useValue: titleSpy}
+        {provide: Title, useValue: titleSpy},
+        {provide: RaHeaderTitleService, useValue: headerTitleSpy}
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
@@ -59,11 +63,17 @@ describe('RaNewReservationComponent', () => {
     const titleSpy = fixture.debugElement.injector
       .get(Title) as jasmine.SpyObj<Title>;
 
+    const headerTitleSpy = fixture.debugElement.injector
+      .get(RaHeaderTitleService) as jasmine.SpyObj<RaHeaderTitleService>;
+
     const pageTitle = component.pageTitle.nativeElement
       .getAttribute('pageTitle');
 
     expect(pageTitle).toBeTruthy();
     expect(titleSpy.setTitle).toHaveBeenCalledTimes(1);
+    expect(titleSpy.setTitle).toHaveBeenCalledWith(pageTitle);
+    expect(headerTitleSpy.setTitle).toHaveBeenCalledTimes(1);
+    expect(headerTitleSpy.setTitle).toHaveBeenCalledWith(pageTitle);
   });
 
   it('#loading should show/hide spinner', () => {
