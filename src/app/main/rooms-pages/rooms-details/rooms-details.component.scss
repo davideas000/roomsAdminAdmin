@@ -1,0 +1,60 @@
+@import '../../../../assets/scss/breakpoints';
+@import '../../../../assets/scss/scrollbar';
+
+$max-width-elements: 330px;
+
+@mixin scroll-overflow {
+  overflow: auto;
+  @include set-scrollbar();
+  padding: 2px; // prevents border to hide
+}
+
+.container {
+  margin-top: 10px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .container {
+    align-items: normal;
+    margin-top: 20px;
+    flex-direction: row;
+    height: calc(100% - 20px);
+  }
+}
+
+.reservs-wrapper {
+  max-width: $max-width-elements;
+  width: 100%;
+  /* height: 100%; // FIXME: DELETE */
+  flex-shrink: 6;
+  margin: 0 auto;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .reservs-wrapper{
+    max-width: 600px;
+    margin: 0;
+  }
+}
+
+.room-info {
+  width: 100%;
+  max-width: $max-width-elements;
+  margin: 0 auto;
+
+  // this prevent the element from shrink when the room doesn't
+  // have photos
+  flex-basis: $max-width-elements;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .room-info {
+    @include scroll-overflow();
+    margin: 0;
+    margin-right: 10px;
+  }
+}
