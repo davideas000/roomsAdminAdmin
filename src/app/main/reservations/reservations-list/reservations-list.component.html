@@ -9,7 +9,7 @@
         (remove)="remove(reservation)"></ra-reservation>
   </li>
 </ul>
-<mat-card>
+<mat-card *ngIf="reservations?.length === 0">
   <p class="mat-body-1 ra-reservations-list-empty-msg"
-     *ngIf="reservations?.length === 0" i18n>Não há reservas</p>
+     i18n>Não há reservas</p>
 </mat-card>
