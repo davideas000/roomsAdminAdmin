@@ -1,0 +1,30 @@
+<div class="reservs">
+  <mat-divider
+      *ngIf="rs.isActive('xs')"
+      class="divider"></mat-divider>
+
+  <ra-reservations-panel-header
+      (filter)="filterBy($event)"></ra-reservations-panel-header>
+
+  <ng-container
+      *ngIf="loading || error; else reservationsList">
+    <mat-spinner
+        *ngIf="loading"
+        class="spinner"
+        diameter="50" color="accent"></mat-spinner>
+    <ra-message-panel
+        [closeButton]="false"
+        *ngIf="error" i18n>Ops, algo deu errado,
+      por favor verifique sua conexão com
+      a Internet e tente novamente</ra-message-panel>
+  </ng-container>
+  <ng-template #reservationsList>
+    <ra-reservations-list
+        class="reserv-list"
+        [showTitle]="false"
+        [showStatus]="true"
+        [showActions]="false"
+        [reservations]="reservations"
+        [type]="'list'"></ra-reservations-list>
+  </ng-template>
+</div>

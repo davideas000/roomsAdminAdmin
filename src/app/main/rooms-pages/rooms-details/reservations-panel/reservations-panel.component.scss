@@ -1,0 +1,34 @@
+@import '../../../../../assets/scss/breakpoints';
+@import '../../../../../assets/scss/scrollbar';
+
+$max-width-elements: 330px;
+
+@mixin scroll-overflow {
+  overflow: auto;
+  @include set-scrollbar();
+  padding: 2px; // prevents border to hide
+}
+
+.reservs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  margin: 0 auto;
+
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .reserv-list {
+    @include scroll-overflow();
+  }
+}
+
+.spinner {
+  margin: 0 auto;
+}
+
+.divider {
+  margin-top: 27px;
+  margin-bottom: 10px;
+}
