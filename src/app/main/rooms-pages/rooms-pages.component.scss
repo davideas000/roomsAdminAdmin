@@ -1,0 +1,32 @@
+@import '../../../assets/scss/breakpoints';
+@import '../../../assets/scss/scrollbar';
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.content {
+  height: 100vh;
+}
+
+.main {
+  box-sizing: border-box;
+  overflow: auto;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 20px 20px 20px;
+  @include set-scrollbar();
+}
+
+@media(max-width: map-get($breakpoints, xs)) {
+  .main {
+    top: 56px;
+    padding: 0 10px 20px;
+  }
+}
