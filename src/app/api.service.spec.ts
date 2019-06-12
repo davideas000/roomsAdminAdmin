@@ -216,7 +216,7 @@ describe('RaApiService', () => {
        httpTestingController.verify();
      }));
 
-  it('#pendingReservationsCountByDep$ should make a request to the server route that '
+  it('#getPendingReservationsCountByDep$() should make a request to the server route that '
      + 'return the number of pending reservations by department',
      inject([RaApiService], (service: RaApiService) => {
        const countStub = {result: 3};
