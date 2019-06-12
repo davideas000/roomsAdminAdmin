@@ -334,6 +334,37 @@ describe('RaApiService', () => {
        httpTestingController.verify();
      }));
 
+  it('#rejectReservation$() should set the status of a '
+     + 'reservation to rejected',
+     inject([RaApiService], (service: RaApiService) => {
+
+       const stubResult: any = {_id: 'reservid'};
+       const stubReserv = {
+         _id: 'reser001',
+         status: 'pending',
+         startDate: new Date('2019-01-01'),
+         endDate: new Date('2019-01-01'),
+         startTime: new Date('2019-01-01'),
+         endTime: new Date('2019-01-01'),
+         user: {
+           _id: 'userid',
+         } as any,
+         room : {_id: 'roomid'} as any
+       };
+       service.rejectReservation$(stubReserv).subscribe(
+         r => expect(r).toEqual(stubResult),
+         _ => fail('request should be successful')
+       );
+
+       const req = httpTestingController.expectOne(
+         `${environment.apiUrl}/reservation/${stubReserv._id}`);
+       expect(req.request.method).toBe('PUT');
+       expect(req.request.headers.get('Authorization')).toBeTruthy();
+       expect(req.request.body).toEqual({status: 'rejected'});
+       req.flush(stubResult);
+       httpTestingController.verify();
+     }));
+
   it('#getRoomById$() should do a GET request to the server route: '
      + '/room/:roomid', () =>{
        const apiService = TestBed.get(RaApiService);

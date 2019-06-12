@@ -115,6 +115,16 @@ export class RaApiService {
     return this._put(path, {status: 'approved'});
   }
 
+  rejectReservation$(reserv: RaReservation,
+                     reason?: string): Observable<RaReservation> {
+    const path = `reservation/${reserv._id}`;
+    let data: {status: string, reason?: string} = {status: 'rejected'}
+    if (reason) {
+      data.reason = reason
+    }
+    return this._put(path, data);
+  }
+
   getRoomById$(roomid: string): Observable<RaRoom> {
     return this._get(`room/${roomid}`);
   }
