@@ -1,6 +1,8 @@
 @import '../../../assets/scss/breakpoints';
+@import 'header-height';
 
 .header {
+  height: $header-height;
   font-size: 1px;
   line-height: 1;
   display: flex;
