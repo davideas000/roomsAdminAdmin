@@ -232,22 +232,6 @@ describe('RaApiService', () => {
        httpTestingController.verify();
      }));
 
-  it('#pendingReservationsCountByDep$ should make a request to the server route that '
-     + 'return the number of pending reservations by department',
-     inject([RaApiService], (service: RaApiService) => {
-       const countStub = {result: 3};
-
-       service.getPendingReservationsCountByDep$()
-         .subscribe(r => expect(r).toBe(countStub));
-
-       const req = httpTestingController.expectOne(
-         `${environment.apiUrl}/reservations?status=pending&op=countdep`);
-       expect(req.request.method).toBe('GET');
-       expect(req.request.headers.get('Authorization')).toBeTruthy();
-       req.flush(countStub);
-       httpTestingController.verify();
-     }));
-
   it('#getReservationsByRoomAndPeriod$() should fetch reservations '
      + 'from the server', () => {
        const service: RaApiService = TestBed.get(RaApiService);
