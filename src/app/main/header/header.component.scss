@@ -6,7 +6,7 @@
   font-size: 1px;
   line-height: 1;
   display: flex;
-  // justify-content: space-between;
+  justify-content: space-between;
   align-items: center;
   margin: 0px;
 }
@@ -17,17 +17,22 @@
   }
 }
 
-.left-side {
-  flex: 1;
-}
+$header-gap: 10px;
 
 .title {
-  flex: 1;
   text-align: center;
+  margin-left: $header-gap;
+  display: inline-block;
+  margin-bottom: 0;
+  word-spacing: .11243em;
+}
+
+.title span {
+  position: relative;
+  top: .17em;
 }
 
 .right-side {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;

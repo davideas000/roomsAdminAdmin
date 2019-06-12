@@ -10,8 +10,9 @@
         <mat-icon>menu</mat-icon>
       </button>
     </ng-template>
+    <h1 class="title">
+      <span class="mat-body">{{ title }}</span></h1>
   </div>
-  <h1 class="title">{{ title }}</h1>
   <div class="right-side">
     <ra-notifications-panel
         *ngIf="showNotificationsIcon"></ra-notifications-panel>
