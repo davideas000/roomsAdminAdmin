@@ -308,7 +308,7 @@ describe('RaApiService', () => {
 
        const stubResult: any = 'success';
        const stubReserv: any = {_id: 'reser001', status: 'pending'};
-       service.approveReserv$(stubReserv).subscribe(
+       service.approveReservation$(stubReserv).subscribe(
          r => expect(r).toEqual(stubResult),
          _ => fail('request should be successful')
        );

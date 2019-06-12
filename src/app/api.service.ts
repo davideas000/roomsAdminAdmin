@@ -110,7 +110,7 @@ export class RaApiService {
     return this._put(path, data);
   }
 
-  approveReserv$(reserv: RaReservation): Observable<RaReservation> {
+  approveReservation$(reserv: RaReservation): Observable<RaReservation> {
     const path = `reservation/${reserv._id}`;
     return this._put(path, {status: 'approved'});
   }
