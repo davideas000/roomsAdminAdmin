@@ -152,7 +152,7 @@ describe('RaApiService', () => {
        httpTestingController.verify();
      }));
 
-  it('#pendingReservationsByDep$() should return list of pending '
+  it('#getPendingReservationsByDep$() should return list of pending '
      + 'reservations by department',
      inject([RaApiService], (service: RaApiService) => {
        const stubReservs = {
@@ -163,7 +163,7 @@ describe('RaApiService', () => {
          ]
        };
 
-       service.pendingReservationsByDep$.subscribe(
+       service.getPendingReservationsByDep$().subscribe(
          r => expect(r).toEqual(stubReservs as any),
          _ => fail('request should be successful')
        );
@@ -176,7 +176,7 @@ describe('RaApiService', () => {
        httpTestingController.verify();
      }));
 
-  it('#approvedReservationsByDep$() should return list of approved '
+  it('#getApprovedReservationsByDep$() should return list of approved '
      + 'reservations by department',
      inject([RaApiService], (service: RaApiService) => {
        const stubReservs: any = {
@@ -187,7 +187,7 @@ describe('RaApiService', () => {
          ]
        };
 
-       service.approvedReservationsByDep$.subscribe(
+       service.getApprovedReservationsByDep$().subscribe(
          r => expect(r).toEqual(stubReservs),
          _ => fail('request should be successful')
        );
@@ -205,7 +205,7 @@ describe('RaApiService', () => {
      inject([RaApiService], (service: RaApiService) => {
        const countStub = 3;
 
-       service.pendingReservationsCount$
+       service.getPendingReservationsCount$()
          .subscribe(r => expect(r).toBe(countStub));
 
        const req = httpTestingController.expectOne(
@@ -221,7 +221,7 @@ describe('RaApiService', () => {
      inject([RaApiService], (service: RaApiService) => {
        const countStub = {result: 3};
 
-       service.pendingReservationsCountByDep$
+       service.getPendingReservationsCountByDep$()
          .subscribe(r => expect(r).toBe(countStub));
 
        const req = httpTestingController.expectOne(
@@ -237,7 +237,7 @@ describe('RaApiService', () => {
      inject([RaApiService], (service: RaApiService) => {
        const countStub = {result: 3};
 
-       service.pendingReservationsCountByDep$
+       service.getPendingReservationsCountByDep$()
          .subscribe(r => expect(r).toBe(countStub));
 
        const req = httpTestingController.expectOne(

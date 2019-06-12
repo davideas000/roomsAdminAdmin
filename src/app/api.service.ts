@@ -70,19 +70,19 @@ export class RaApiService {
     return this._get('reservations?status=pending');
   }
 
-  get pendingReservationsByDep$(): Observable<RaReservation[]> {
+  getPendingReservationsByDep$(): Observable<RaReservation[]> {
     return this._get('reservations?status=pending&by=dep');
   }
 
-  get approvedReservationsByDep$(): Observable<RaReservation[]> {
+  getApprovedReservationsByDep$(): Observable<RaReservation[]> {
     return this._get('reservations?status=approved&by=dep');
   }
 
-  get pendingReservationsCount$(): Observable<number> {
+  getPendingReservationsCount$(): Observable<number> {
     return this._get('reservations?status=pending&op=count');
   }
 
-  get pendingReservationsCountByDep$(): Observable<{result: number}> {
+  getPendingReservationsCountByDep$(): Observable<{result: number}> {
     return this._get('reservations?status=pending&op=countdep');
   }
 
