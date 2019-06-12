@@ -3,7 +3,7 @@ import { RaRoom } from './room.model';
 
 export class RaReservation {
   _id: string;
-  reason: string;
+  reason?: string;
   startDate: Date;
   endDate: Date;
   startTime: Date;
