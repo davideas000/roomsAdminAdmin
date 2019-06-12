@@ -445,9 +445,8 @@ describe('RaApiService', () => {
      'the \'/rsearch\' server route if query are empty',
      inject([RaApiService], (service: RaApiService) => {
 
-       const queryValues = {param1: "", param2: ""}
        const stubResult = 'success';
-       service.roomSearch$(queryValues).subscribe(
+       service.roomSearch$().subscribe(
          r => expect(r).toEqual(stubResult as any),
          _ => fail('request should be successful')
        );

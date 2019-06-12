@@ -137,7 +137,7 @@ export class RaApiService {
     return this._get('departments');
   }
 
-  roomSearch$(f: any): Observable<RaRoom[]> {
+  roomSearch$(f?: any): Observable<RaRoom[]> {
     let query = "?";
     for(let k in f) {
       if (f[k]) {
