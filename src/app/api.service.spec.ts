@@ -200,19 +200,21 @@ describe('RaApiService', () => {
        httpTestingController.verify();
      }));
 
-  it('#pendingReservationsCount$ should make a request to the server route that '
+  it('#getPendingReservationsCount$() should make a request to the server route that '
      + 'returns number of pending reservations',
      inject([RaApiService], (service: RaApiService) => {
        const countStub = 3;
+       let result: number;
 
        service.getPendingReservationsCount$()
-         .subscribe(r => expect(r).toBe(countStub));
+         .subscribe(r => result = r);
 
        const req = httpTestingController.expectOne(
          `${environment.apiUrl}/reservations?status=pending&op=count`);
        expect(req.request.method).toBe('GET');
        expect(req.request.headers.get('Authorization')).toBeTruthy();
        req.flush(countStub);
+       expect(result).toBe(countStub);
        httpTestingController.verify();
      }));
 
