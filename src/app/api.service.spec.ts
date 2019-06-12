@@ -4,6 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { RaApiService } from './api.service';
 import { environment } from '../environments/environment';
 import { RaAuthService } from './auth/auth.service';
+import { RaNotificationStatus, RaNotificationCategory, RaNotification } from './models/notification.model';
 
 describe('RaApiService', () => {
   let httpTestingController: HttpTestingController;
@@ -54,6 +55,34 @@ describe('RaApiService', () => {
        expect(req.request.method).toBe('GET');
        expect(req.request.headers.get('Authorization')).toBeTruthy();
        req.flush(stubData);
+
+       httpTestingController.verify();
+     }));
+
+  it('#getNotificationById$() should fetch a notification by id',
+     inject([RaApiService], (service: RaApiService) => {
+       let result: RaNotification;
+       const notificationStub = {
+         _id: 'notiid',
+         message: 'notifi message',
+         status: RaNotificationStatus.unread,
+         category: RaNotificationCategory.approvedReservation,
+         createdAt: new Date()
+       };
+       const notifiIdStub = 'notifi001';
+       service.getNotificationById$(notifiIdStub)
+         .subscribe(
+           r => {
+             result = r;
+           }
+         );
+
+       let req = httpTestingController
+         .expectOne(`${environment.apiUrl}/notification/${notifiIdStub}`)
+       expect(req.request.method).toBe('GET');
+       expect(req.request.headers.get('Authorization')).toBeTruthy();
+       req.flush(notificationStub);
+       expect(result).toEqual(notificationStub);
 
        httpTestingController.verify();
      }));

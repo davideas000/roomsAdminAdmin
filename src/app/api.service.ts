@@ -54,6 +54,10 @@ export class RaApiService {
     return this._get(url);
   }
 
+  getNotificationById$(notificationid: string): Observable<RaNotification> {
+    return this._get(`notification/${notificationid}`);
+  }
+
   markNotificationsAsRead$(): Observable<any> {
     return this._put('notifim', {});
   }
