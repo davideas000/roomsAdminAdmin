@@ -82,7 +82,7 @@ export class RaApiService {
     return this._get('reservations?status=pending&op=count');
   }
 
-  getPendingReservationsCountByDep$(): Observable<{result: number}> {
+  getPendingReservationsCountByDep$(): Observable<number> {
     return this._get('reservations?status=pending&op=countdep');
   }
 
