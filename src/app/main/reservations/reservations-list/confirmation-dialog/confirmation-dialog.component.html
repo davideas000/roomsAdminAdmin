@@ -9,7 +9,10 @@
 <mat-dialog-content *ngIf="config.type !== 'approve'">
   <p *ngIf="config.showMessage"
      i18n>Remover a reserva deixará o espaço disponivel</p>
-  <mat-form-field *ngIf="config.showTextarea" appearance="outline">
+  <mat-form-field
+      color="accent"
+      appearance="outline"
+      *ngIf="config.showTextarea">
     <mat-label i18n>Motivo (opcional)</mat-label>
     <textarea matInput [formControl]="reason"></textarea>
   </mat-form-field>
