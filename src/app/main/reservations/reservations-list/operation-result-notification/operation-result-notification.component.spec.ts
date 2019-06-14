@@ -31,18 +31,18 @@ describe('RaOperationResultNotificationComponent', () => {
   });
 
   it('should display a message according to #config.type', () => {
-    component.config.type = 'removed';
+    component.config.type = 'remove';
     fixture.detectChanges();
     const message = fixture.nativeElement
       .querySelector('p');
     expect(message).toBeTruthy();
     expect(message.textContent).toBe('Reserva removida com sucesso');
 
-    component.config.type = 'approved';
+    component.config.type = 'approve';
     fixture.detectChanges();
     expect(message.textContent).toBe('Reserva aprovada com sucesso');
 
-    component.config.type = 'rejected';
+    component.config.type = 'reject';
     fixture.detectChanges();
     expect(message.textContent).toBe('Reserva rejeitada com sucesso');
   });
