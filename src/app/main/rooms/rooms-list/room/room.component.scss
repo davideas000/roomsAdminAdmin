@@ -1,6 +1,19 @@
 :host {
   display: contents;
 }
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card-content {
+  word-spacing: .11243em;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .photos {
   height: 200px;
 }
@@ -12,11 +25,12 @@
 }
 
 .description {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .info-heading {
   margin-bottom: 10px;
+  margin-top: auto;
 }
 
 .label {
