@@ -4,12 +4,12 @@
     <mat-card-subtitle>{{ room?.type }}
       - {{ room?.department.acronym }}</mat-card-subtitle>
   </mat-card-title-group>
-  <div mat-card-image>
+  <div *ngIf="!compact" mat-card-image>
     <ra-image-slideshow
         class="photos"
         [images]="room?.photos"></ra-image-slideshow>
   </div>
-  <mat-card-content>
+  <mat-card-content *ngIf="!compact">
     <p class="description">{{ room?.description }}</p>
     <p class="mat-body-2 info-heading" i18n>Detalhes</p>
     <div class="info">

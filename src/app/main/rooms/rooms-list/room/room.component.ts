@@ -8,4 +8,5 @@ import { RaRoom } from 'src/app/models/room.model';
 })
 export class RaRoomComponent {
   @Input() room: RaRoom;
+  @Input() compact = false;
 }

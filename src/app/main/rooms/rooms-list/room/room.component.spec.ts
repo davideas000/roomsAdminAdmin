@@ -60,4 +60,26 @@ describe('RaRoomComponent', () => {
     expect(roomInfo[2].textContent).toBe(`${roomStub.capacity} pessoas`);
   });
 
+  it('#compact should show/hide room\'s photos and details', () => {
+    // default to false
+    let photoEl: HTMLElement = fixture.nativeElement
+      .querySelector('ra-image-slideshow');
+    let contentEl: HTMLElement = fixture.nativeElement
+      .querySelector('mat-card-content');
+
+    expect(photoEl).toBeTruthy();
+    expect(contentEl).toBeTruthy();
+
+    component.compact = true;
+    fixture.detectChanges();
+
+    photoEl = fixture.nativeElement
+      .querySelector('ra-image-slideshow');
+    contentEl = fixture.nativeElement
+      .querySelector('mat-card-content');
+
+    expect(photoEl).toBeFalsy();
+    expect(contentEl).toBeFalsy();
+  });
+
 });
