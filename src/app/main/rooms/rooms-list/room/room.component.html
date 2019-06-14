@@ -1,6 +1,9 @@
 <mat-card class="card">
   <mat-card-title-group>
-    <mat-card-title>{{ room?.name }}</mat-card-title>
+    <mat-card-title>
+      <a class="ra-room-title"
+         [routerLink]="['/main/rooms', room?._id]">{{ room?.name }}</a>
+    </mat-card-title>
     <mat-card-subtitle>{{ room?.type }}
       - {{ room?.department.acronym }}</mat-card-subtitle>
   </mat-card-title-group>
