@@ -12,7 +12,7 @@ export class RaReservationComponent implements OnInit {
   @Input() showActions = true;
   @Input() showTitle = true;
   @Input() showStatus = false;
-  @Output() remove = new EventEmitter();
+  @Output() action = new EventEmitter<string>();
 
   ngOnInit() {
     if (this.showPhoto && !this.reservation.room.photos)
@@ -20,7 +20,7 @@ export class RaReservationComponent implements OnInit {
   }
 
   onRemove() {
-    this.remove.emit();
+    this.action.emit('remove');
   }
 
 }

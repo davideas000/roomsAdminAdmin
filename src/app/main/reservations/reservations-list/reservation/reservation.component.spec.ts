@@ -162,17 +162,18 @@ describe('RaReservationComponent', () => {
        expect(placeholder).toBeTruthy();
      });
 
-  it('should emit a remove event when the remove button is clicked',
+  it('should emit an action event with the `remove` value when '
+     + 'the remove button is clicked',
      () => {
-       let eventResult = false;
-       component.remove.subscribe(r => eventResult = true);
+       let eventResult: string;
+       component.action.subscribe(r => eventResult = r);
 
        const btn: HTMLElement = fixture.nativeElement
          .querySelector('mat-card-actions button');
 
        btn.dispatchEvent(new Event('click'));
 
-       expect(eventResult).toBe(true);
+       expect(eventResult).toBe('remove');
      });
 
 });
