@@ -21,8 +21,8 @@
     </li>
   </ul>
   <ng-template #emptyMessage>
-    <p class="center-text" *ngIf="!error && notifications?.length === 0"
-       i18n>
+    <p class="center-text ra-notifications-panel-empty-msg"
+       *ngIf="!error && notifications?.length === 0" i18n>
       Não há notificações
     </p>
     <ra-message-panel
