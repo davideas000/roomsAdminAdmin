@@ -2,20 +2,20 @@
   <mat-card-title-group *ngIf="showTitle">
     <mat-card-title>
       <a class="ra-reservation-title"
-         [routerLink]="['/main/rooms', reservation.room._id]"
-      >{{ reservation.room.name }}</a>
+         [routerLink]="['/main/rooms', reservation?.room._id]"
+      >{{ reservation?.room.name }}</a>
     </mat-card-title>
-    <mat-card-subtitle>{{ reservation.room.type }},
-      {{ reservation.room.department.acronym }}</mat-card-subtitle>
+    <mat-card-subtitle>{{ reservation?.room.type }},
+      {{ reservation?.room.department.acronym }}</mat-card-subtitle>
   </mat-card-title-group>
   <ng-container *ngIf="showPhoto">
     <img
         mat-card-image
         class="room-photo"
         alt="foto da sala"
-        *ngIf="reservation.room.photos.length !== 0 ; else placeholder"
+        *ngIf="reservation?.room.photos.length !== 0 ; else placeholder"
         i18n-alt
-        [src]="reservation.room.photos[0]">
+        [src]="reservation?.room.photos[0]">
     <ng-template #placeholder>
       <ra-image-placeholder
           mat-card-image
@@ -25,19 +25,19 @@
   <mat-card-content>
     <p>
       <span class="r-label">
-        {{  reservation.startDate | date:'mediumDate':'+0000'}} -
-        {{  reservation.endDate | date:'mediumDate':'+0000'}}
+        {{  reservation?.startDate | date:'mediumDate':'+0000'}} -
+        {{  reservation?.endDate | date:'mediumDate':'+0000'}}
       </span>
       <span class="r-label">
-        {{  reservation.startTime | date:'HH:mm':'+0000' }} -
-        {{ reservation.endTime | date: 'HH:mm':'+0000'}}
+        {{  reservation?.startTime | date:'HH:mm':'+0000' }} -
+        {{ reservation?.endTime | date: 'HH:mm':'+0000'}}
       </span>
     </p>
-    <p *ngIf="reservation.reason">{{reservation.reason}}</p>
+    <p *ngIf="reservation?.reason">{{reservation?.reason}}</p>
   </mat-card-content>
   <mat-chip-list *ngIf="showStatus" [selectable]="false">
     <mat-chip [disableRipple]="true" i18n="reservation status">{
-      reservation.status,
+      reservation?.status,
       select,
       approved {aprovada}
       pending {pendente}
