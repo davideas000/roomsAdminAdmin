@@ -176,4 +176,38 @@ describe('RaReservationComponent', () => {
        expect(eventResult).toBe('remove');
      });
 
+  it('should emit an action event with the `approve` value when '
+     + 'the approve button is clicked',
+     () => {
+       component.actionButtons = 'approve-reject';
+       fixture.detectChanges();
+
+       let eventResult: string;
+       component.action.subscribe(r => eventResult = r);
+
+       const btn: HTMLElement = fixture.nativeElement
+         .querySelector('mat-card-actions .approve-btn');
+
+       btn.dispatchEvent(new Event('click'));
+
+       expect(eventResult).toBe('approve');
+     });
+
+  it('should emit an action event with the `reject` value when '
+     + 'the `reject` button is clicked',
+     () => {
+       component.actionButtons = 'approve-reject';
+       fixture.detectChanges();
+
+       let eventResult: string;
+       component.action.subscribe(r => eventResult = r);
+
+       const btn: HTMLElement = fixture.nativeElement
+         .querySelector('mat-card-actions button:last-child');
+
+       btn.dispatchEvent(new Event('click'));
+
+       expect(eventResult).toBe('reject');
+     });
+
 });

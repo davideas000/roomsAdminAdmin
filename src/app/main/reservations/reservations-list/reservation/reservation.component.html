@@ -47,9 +47,23 @@
       align="end"
       *ngIf="showActions">
     <button
+        *ngIf="actionButtons === 'remove'; else approveReject"
         mat-stroked-button
         color="warn"
         (click)="onRemove()"
-        i18n="remove reservation">Remover</button>
+        i18n>Remover</button>
+    <ng-template #approveReject>
+      <button
+          class="approve-btn"
+          mat-stroked-button
+          color="accent"
+          (click)="onApprove()"
+          i18n>Aprovar</button>
+      <button
+          mat-stroked-button
+          color="warn"
+          (click)="onReject()"
+          i18n>Rejeitar</button>
+    </ng-template>
   </mat-card-actions>
 </mat-card>
