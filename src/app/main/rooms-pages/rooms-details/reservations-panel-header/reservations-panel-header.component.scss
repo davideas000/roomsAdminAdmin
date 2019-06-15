@@ -5,7 +5,13 @@
   align-items: center;
 }
 
-.reservs-title {
+.title-wrapper > * {
   margin: 0;
   margin-left: 10px;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
