@@ -16,6 +16,7 @@ export class RaReservationsListComponent {
   @Input('type') listtype: string;
   @Input() showTitle = true;
   @Input() showActions = true;
+  @Input() actionButtons: string;
   @Input() showStatus = false;
 
   constructor(private apiService: RaApiService,
