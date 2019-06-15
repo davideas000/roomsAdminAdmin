@@ -7,7 +7,7 @@
         [showActions]="showActions"
         [reservation]="reservation"
         [actionButtons]="actionButtons"
-        (remove)="remove(reservation)"></ra-reservation>
+        (action)="onAction($event, reservation)"></ra-reservation>
   </li>
 </ul>
 <mat-card class="ra-reservations-list-empty-msg"
