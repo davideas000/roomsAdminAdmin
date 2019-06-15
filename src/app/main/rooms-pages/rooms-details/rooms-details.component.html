@@ -18,7 +18,9 @@
         diameter="50"></mat-spinner>
   </ng-container>
   <ng-template #main>
-    <ra-room class="room-info" [room]="room"></ra-room>
+    <div class="room-info">
+      <ra-room [room]="room"></ra-room>
+    </div>
     <div class="reservs-wrapper">
       <ra-reservations-panel [roomid]="room._id" ></ra-reservations-panel>
     </div>
