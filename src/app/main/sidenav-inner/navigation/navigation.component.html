@@ -1,0 +1,47 @@
+<mat-nav-list class="nav-list">
+  <h3 matSubheader class="nav-subheader" i18n>Espaços</h3>
+  <div>
+    <mat-list-item routerLink="/main/rooms/all">
+      <mat-icon matListIcon>meeting_room</mat-icon>
+      <a matLine i18n>Espaços</a>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <h3 matSubheader class="nav-subheader" i18n>Minhas Reservas</h3>
+    <mat-list-item routerLink="/main/rsrvs/approved">
+      <mat-icon matListIcon
+                class="nav-icon"
+                fontSet="fa" fontIcon="fa-calendar-check-o"></mat-icon>
+      <a matLine i18n>Aprovadas</a>
+    </mat-list-item>
+    <mat-list-item routerLink="/main/rsrvs/pending">
+      <mat-icon matListIcon class="nav-icon"
+                fontSet="fa" fontIcon="fa-calendar-o"
+      ></mat-icon>
+      <a matLine i18n>Pendentes</a>
+      <span *ngIf="numberOfPendingReservations !== 0"
+            class="count"
+      >{{ numberOfPendingReservations }}</span>
+    </mat-list-item>
+  </div>
+  <ng-container *ngIf="showDepNav">
+    <div>
+      <mat-divider></mat-divider>
+      <h3 matSubheader class="nav-subheader"
+          i18n>Reservas de Setor</h3>
+      <mat-list-item routerLink="/main/rsrvs/dapproved">
+        <mat-icon matListIcon class="nav-icon"
+                  fontSet="fa" fontIcon="fa-calendar-check-o"></mat-icon>
+        <a matLine i18n>Aprovadas</a>
+      </mat-list-item>
+      <mat-list-item routerLink="/main/rsrvs/dpending">
+        <mat-icon matListIcon
+                  class="nav-icon"
+                  fontSet="fa" fontIcon="fa-calendar-o"></mat-icon>
+        <a matLine i18n>Pendentes</a>
+        <span class="countdep"
+              *ngIf="numberOfPendingReservationsDep !== 0"
+        >{{ numberOfPendingReservationsDep }}</span>
+      </mat-list-item>
+    </div>
+  </ng-container>
+</mat-nav-list>
