@@ -4,6 +4,7 @@ import { RaMainComponent } from './main.component';
 import { RaMainRoutingModule } from './main-routing.module';
 import { RaRoomsPagesModule } from './rooms-pages/rooms-pages.module';
 import { RaNewReservationModule } from './new-reservation/new-reservation.module';
+import { RaSidenavInnerModule } from './sidenav-inner/sidenav-inner.module';
 
 @NgModule({
   declarations: [RaMainComponent],
@@ -11,7 +12,8 @@ import { RaNewReservationModule } from './new-reservation/new-reservation.module
     CommonModule,
     RaMainRoutingModule,
     RaRoomsPagesModule,
-    RaNewReservationModule
+    RaNewReservationModule,
+    RaSidenavInnerModule
   ]
 })
 export class RaMainModule { }
