@@ -1,0 +1,17 @@
+@import '../header/header-height';
+
+.logo-container {
+  display: flex;
+  height: $header-height;
+}
+
+.logo-container .logo-wrapper {
+  margin: auto;
+}
+
+.logo {
+  display: block;
+  height: 2.5em; /* 35px / 14px */
+  width: 7.14285714286em; /* 100px / 14px */
+  padding: .5em; /* 14px / 14px */
+}

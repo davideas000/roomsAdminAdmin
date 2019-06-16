@@ -15,6 +15,6 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     RouterModule
   ],
-  exports: [RaUserMenuComponent]
+  exports: [RaUserMenuComponent, RaUserMenuUserComponent, RaUserMenuNavComponent]
 })
 export class RaUserMenuModule { }

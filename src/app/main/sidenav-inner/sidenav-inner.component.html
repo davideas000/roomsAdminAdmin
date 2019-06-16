@@ -1,0 +1,18 @@
+<div class="logo-container"
+     *ngIf="!rs.isActive('xs'); else userMenuUser">
+  <a mat-button class="logo-wrapper">
+    <ra-logo class="logo"></ra-logo>
+  </a>
+</div>
+<ng-template #userMenuUser>
+  <ra-user-menu-user
+      [user]="user"
+      (click)="toggleUserMenuNav()"></ra-user-menu-user>
+</ng-template>
+<mat-divider></mat-divider>
+<ra-navigation
+    [showDepNav]="user?.role === 'responsible'"
+    *ngIf="!showUserMenuNav; else userMenuNav"></ra-navigation>
+<ng-template #userMenuNav>
+  <ra-user-menu-nav></ra-user-menu-nav>
+</ng-template>
