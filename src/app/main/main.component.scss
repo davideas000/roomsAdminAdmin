@@ -1,0 +1,69 @@
+@import '../../assets/scss/breakpoints';
+@import '../../assets/scss/scrollbar';
+@import 'header/header-height';
+
+.container {
+  height: 100%;
+}
+
+.sidenav {
+  min-width: 16.4285714286em; /* 230px / 14px */
+}
+
+@media (min-width: map-get($breakpoints, md)) {
+  .sidenav {
+    z-index: 1 !important;
+  }
+}
+
+///////////////////////
+/////// content ///////
+///////////////////////
+
+.content {
+  height: 100vh;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.content-main {
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+
+  @include set-scrollbar();
+}
+
+@media(max-width: map-get($breakpoints, xs)) {
+  .content-main {
+    top: 56px;
+  }
+}
+
+.router-outlet-wrapper {
+  $margin: 20px;
+  margin-left: $margin;
+  margin-right: $margin;
+  margin-bottom: $margin;
+}
+
+@media (max-width: map-get($breakpoints, xs)) {
+  .router-outlet-wrapper {
+    $margin: 10px;
+    margin-left: $margin;
+    margin-right: $margin;
+  }
+}
+
+///////////////////////////
+/////// content end ///////
+///////////////////////////

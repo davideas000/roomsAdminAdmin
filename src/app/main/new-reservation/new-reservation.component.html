@@ -1,28 +1,22 @@
-<mat-sidenav-container class="container">
-  <mat-sidenav-content class="content">
-    <ra-header [showBackButton]="true"></ra-header>
-    <!-- hack to translate the title of the page -->
-    <span pageTitle="Nova Reserva" #title
-          i18n-pageTitle="title of the page"></span>
-    <div class="main">
-      <mat-card class="card">
-        <div *ngIf="loading || error; else main" class="loading">
-          <mat-spinner
-              *ngIf="!error"
-              diameter="50"
-              color="accent"></mat-spinner>
-          <ra-message-panel
-              *ngIf="error"
-              i18n>Ops algo deu errado, por
-            favor, verifique sua conexão com a Internet
-            e tente novamente</ra-message-panel>
-        </div>
-        <ng-template #main>
-          <ra-new-reservation-form
-              [room]="room"
-              class="form"></ra-new-reservation-form>
-        </ng-template>
-      </mat-card>
+<span pageTitle="Nova Reserva" #title
+      i18n-pageTitle="title of the page"></span>
+<div class="main">
+  <mat-card class="card">
+    <div *ngIf="loading || error; else main" class="loading">
+      <mat-spinner
+          *ngIf="!error"
+          diameter="50"
+          color="accent"></mat-spinner>
+      <ra-message-panel
+          *ngIf="error"
+          i18n>Ops algo deu errado, por
+        favor, verifique sua conexão com a Internet
+        e tente novamente</ra-message-panel>
     </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <ng-template #main>
+      <ra-new-reservation-form
+          [room]="room"
+          class="form"></ra-new-reservation-form>
+    </ng-template>
+  </mat-card>
+</div>

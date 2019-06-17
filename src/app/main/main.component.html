@@ -1,0 +1,19 @@
+<mat-sidenav-container>
+  <mat-sidenav
+      #sidenav
+      [mode]="rs.isActive('md') || rs.isActive('xs') ? 'over': 'side'"
+      class="sidenav" fixedInViewport="true"
+      [opened]="isSidenavOpened">
+    <ra-sidenav-inner></ra-sidenav-inner>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <ra-header
+        (menuButtonClick)="onMenuButtonClick(sidenav)"
+        class="header"></ra-header>
+    <div class="content-main">
+      <div class="router-outlet-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
