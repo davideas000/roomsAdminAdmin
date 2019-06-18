@@ -8,6 +8,7 @@
 @import '../app/shared/image-slideshow/image-slideshow-theme';
 @import '../app/main/reservations/reservations-list/reservations-list-theme';
 @import '../app/main/rooms/rooms-list/rooms-list-theme';
+@import '../app/main/rooms/rooms-list/room/room-theme';
 
 @mixin backdropbg ($background) {
 
@@ -93,4 +94,5 @@
   @include ra-image-slideshow-theme($theme);
   @include ra-reservations-list-theme($theme);
   @include ra-rooms-list-theme($theme);
+  @include ra-room-theme($theme);
 }
