@@ -18,7 +18,8 @@ import {
   MatChipsModule,
   MatDialogModule,
   MatSnackBarModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTooltipModule
 } from '@angular/material';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
@@ -47,7 +48,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatChipsModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   exports: [
     MatSidenavModule,
@@ -70,7 +72,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
     MatChipsModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ]
 })
 export class RaAngularMaterialModule { }

@@ -1,0 +1,37 @@
+@import '../../../../assets/scss/breakpoints';
+
+.search-controls-wrapper {
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+@media(min-width: map-get($breakpoints, md)) {
+
+  .search-controls-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+  }
+
+  .advanced {
+    flex-direction: column;
+    align-items: normal;
+  }
+
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 10px;
+}
+
+@media(min-width: map-get($breakpoints, md)) {
+  .advanced-search-btn {
+    margin-right: 0;
+  }
+}
+
+.form-wrapper {
+  flex: 1;
+}

@@ -1,0 +1,29 @@
+<div class="search-controls-wrapper"
+     [class.advanced]="advForm">
+  <div class="form-wrapper">
+    <ra-simple-form
+        *ngIf="!advForm; else advancedForm"
+        [types]="types"
+        [departments]="departments"
+        (search)="onSearch($event)"></ra-simple-form>
+    <ng-template #advancedForm>
+      <ra-advanced-form
+          [types]="types"
+          [departments]="departments"
+          (search)="onSearch($event)"
+          (cancel)="advancedSearchToggle()"></ra-advanced-form>
+    </ng-template>
+  </div>
+  <div class="btns">
+    <div *ngIf="showAdvancedFormButton && !advForm"
+         class="advanced-search-btn">
+      <button mat-icon-button
+              matTooltip="Pesquisa avançada"
+              i18n-matTooltip
+              (click)="advancedSearchToggle()">
+        <mat-icon fontSet="fa" fontIcon="fa-search-plus"></mat-icon>
+      </button>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>
