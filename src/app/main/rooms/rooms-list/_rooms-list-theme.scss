@@ -1,0 +1,7 @@
+@mixin ra-rooms-list-theme($theme) {
+  $foreground: map-get($theme, foreground);
+
+  .ra-rooms-list-empty-msg {
+    color: mat-color($foreground, secondary-text);
+  }
+}

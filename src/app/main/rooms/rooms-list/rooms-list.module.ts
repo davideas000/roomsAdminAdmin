@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 import { RaAngularMaterialModule } from 'src/app/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RaRoomComponent } from './room/room.component';
+import { RaRoomsListComponent } from './rooms-list.component';
 
 @NgModule({
   declarations: [
-    RaRoomComponent
+    RaRoomComponent,
+    RaRoomsListComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { RaRoomComponent } from './room/room.component';
     SharedModule
   ],
   exports: [
-    RaRoomComponent
+    RaRoomComponent,
+    RaRoomsListComponent
   ]
 })
 export class RaRoomsListModule { }

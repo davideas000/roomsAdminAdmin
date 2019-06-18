@@ -1,0 +1,11 @@
+<ul [class.compact]="compact">
+  <li *ngFor="let room of rooms">
+    <ra-room
+        [compact]="compact"
+        [room]="room"></ra-room>
+  </li>
+</ul>
+<mat-card class="ra-rooms-list-empty-msg" *ngIf="rooms?.length === 0">
+  <p class="mat-body-1"
+     i18n>Não há espaços</p>
+</mat-card>
