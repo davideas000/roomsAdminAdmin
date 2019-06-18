@@ -1,0 +1,49 @@
+@import '../../../../../assets/scss/breakpoints';
+
+.search-form {
+  margin: 0 auto;
+}
+
+.field {
+  display: flex;
+}
+
+.field mat-form-field:first-child {
+  margin-right: 30px;
+}
+
+.field > * {
+  flex: 1;
+}
+
+.subtitle {
+  margin-top: 10px;
+}
+
+h3 {
+  margin: 0;
+}
+
+.search-btn-wrapper {
+  text-align: right;
+}
+
+.search-btn-wrapper > * {
+  width: 100px;
+}
+
+.search-btn-wrapper button:first-child {
+  margin-right: 10px;
+}
+
+
+.field-group {
+  display: grid;
+  column-gap: 20px;
+}
+
+@media (min-width: map-get($breakpoints, md)) {
+  .field-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
