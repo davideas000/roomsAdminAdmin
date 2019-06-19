@@ -1,0 +1,6 @@
+@mixin ra-reservations-panel-header-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  .ra-reservations-panel-header-desc {
+    color: mat-color($foreground, secondary-text);
+  }
+}

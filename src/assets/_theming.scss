@@ -9,6 +9,7 @@
 @import '../app/main/reservations/reservations-list/reservations-list-theme';
 @import '../app/main/rooms/rooms-list/rooms-list-theme';
 @import '../app/main/rooms/rooms-list/room/room-theme';
+@import '../app/main/rooms-pages/rooms-details/reservations-panel-header/reservations-panel-header-theme';
 
 @mixin backdropbg ($background) {
 
@@ -95,4 +96,5 @@
   @include ra-reservations-list-theme($theme);
   @include ra-rooms-list-theme($theme);
   @include ra-room-theme($theme);
+  @include ra-reservations-panel-header-theme($theme);
 }
