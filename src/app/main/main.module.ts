@@ -4,6 +4,7 @@ import { RaMainComponent } from './main.component';
 import { RaMainRoutingModule } from './main-routing.module';
 import { RaRoomsPagesModule } from './rooms-pages/rooms-pages.module';
 import { RaNewReservationModule } from './new-reservation/new-reservation.module';
+import { RaReservationsPagesModule } from './reservations-pages/reservations-pages.module';
 import { RaAngularMaterialModule } from '../angular-material.module';
 import { RaSidenavInnerModule } from './sidenav-inner/sidenav-inner.module';
 import { RaHeaderModule } from './header/header.module';
@@ -15,6 +16,7 @@ import { RaHeaderModule } from './header/header.module';
     RaAngularMaterialModule,
     RaMainRoutingModule,
     RaRoomsPagesModule,
+    RaReservationsPagesModule,
     RaNewReservationModule,
     RaSidenavInnerModule,
     RaHeaderModule
