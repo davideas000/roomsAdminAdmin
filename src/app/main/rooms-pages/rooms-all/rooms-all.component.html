@@ -1,0 +1,55 @@
+<span pageTitle="Espaços"
+      i18n-pageTitle
+      #title></span>
+<ng-container *ngIf="loading || error; else main">
+  <mat-spinner
+      color="accent"
+      *ngIf="loading"
+      class="spinner" diameter="50"></mat-spinner>
+  <ra-message-panel
+      [closeButton]="false"
+      *ngIf="error" class="error-msg" i18n>Ops,
+    algo deu errado, por favor, verifique sua conexão com
+    a internet e tente novamente</ra-message-panel>
+</ng-container>
+<ng-template #main>
+  <div class="search-wrapper">
+    <div class="rooms-search-wrapper">
+      <ra-rooms-search
+          [types]="roomTypes"
+          [departments]="roomDeps"
+          (search)="searchRoom($event)">
+        <div class="list-config-btns">
+          <div class="list-type-btn-wrapper">
+            <button mat-icon-button
+                    *ngIf="compactRoomsList; else expandedList"
+                    matTooltip="Lista expandida"
+                    i18n-matTooltip
+                    (click)="toggleCompactRoomsList()">
+              <mat-icon>view_module</mat-icon>
+            </button>
+            <ng-template #expandedList>
+              <button mat-icon-button
+                      matTooltip="Lista compacta"
+                      i18n-matTooltip
+                      (click)="toggleCompactRoomsList()">
+                <mat-icon>view_comfy</mat-icon>
+              </button>
+            </ng-template>
+          </div>
+        </div>
+      </ra-rooms-search>
+    </div>
+  </div>
+  <div *ngIf="!searching; else searchingSpinner">
+    <ra-rooms-list
+        [compact]="compactRoomsList"
+        [rooms]="rooms"></ra-rooms-list>
+  </div>
+  <ng-template #searchingSpinner>
+    <mat-spinner
+        class="spinner"
+        color="accent"
+        diameter="50"></mat-spinner>
+  </ng-template>
+</ng-template>

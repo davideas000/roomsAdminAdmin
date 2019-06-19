@@ -1,0 +1,15 @@
+@import '../../../../assets/scss/breakpoints';
+
+.search-wrapper {
+  margin: 10px auto;
+}
+
+.spinner {
+  margin: 50px auto 0;
+}
+
+.error-msg {
+  @extend .spinner;
+  display: block;
+  max-width: 590px;
+}
