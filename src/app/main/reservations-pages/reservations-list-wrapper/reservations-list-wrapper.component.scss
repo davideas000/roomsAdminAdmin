@@ -1,0 +1,18 @@
+.controls {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+
+.search-controls-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.search {
+  flex: 1;
+}
+
+.spinner {
+  margin: 50px auto 0;
+}

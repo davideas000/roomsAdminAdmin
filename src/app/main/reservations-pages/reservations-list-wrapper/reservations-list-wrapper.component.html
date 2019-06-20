@@ -1,0 +1,34 @@
+<div class="search-controls-wrapper">
+  <div class="controls">
+    <ra-rooms-search
+        [types]="roomTypes"
+        [departments]="deps"
+        [showAdvancedFormButton]="false"
+        (search)="onSearch($event)"
+        class="search">
+      <button mat-icon-button
+              matTooltip="Visualizar em Grade"
+              *ngIf="listType === 'list'; else listviewbtn"
+              (click)="toggleListType()">
+        <mat-icon>view_module</mat-icon>
+      </button>
+    </ra-rooms-search>
+    <ng-template #listviewbtn>
+      <button mat-icon-button
+              matTooltip="Visualizar em Lista"
+              (click)="toggleListType()">
+        <mat-icon>view_list</mat-icon>
+      </button>
+    </ng-template>
+  </div>
+</div>
+<mat-spinner color="accent"
+             *ngIf="searching; else list"
+             class="spinner" diameter="50"></mat-spinner>
+<ng-template #list>
+  <ra-reservations-list
+      [showTextareaOnRemove]="showTextareaOnRemove"
+      [type]="listType"
+      [reservations]="reservations"
+      [actionButtons]="actionButtons"></ra-reservations-list>
+</ng-template>
