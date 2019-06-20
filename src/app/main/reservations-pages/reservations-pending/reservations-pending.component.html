@@ -1,0 +1,15 @@
+<span pageTitle="Minhas Reservas Pendentes" i18n-pageTitle #title></span>
+<ng-container *ngIf="loading || error; else main">
+  <mat-spinner color="accent"
+               *ngIf="loading"
+               class="spinner" diameter="50"></mat-spinner>
+  <ra-message-panel
+      [closeButton]="false"
+      *ngIf="error" class="error-msg" i18n>Ops,
+    algo deu errado, por favor, verifique sua conexão com
+    a internet e tente novamente</ra-message-panel>
+</ng-container>
+<ng-template #main>
+  <ra-reservations-list-wrapper
+      [reservations]="reservations"></ra-reservations-list-wrapper>
+</ng-template>
