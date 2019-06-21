@@ -3,12 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { RaMainComponent } from './main.component';
 import { roomsPagesRoutes } from './rooms-pages/rooms-pages-routes';
 import { newReservationRoutes } from './new-reservation/new-reservation-routes';
+import { reservationsPagesRoutes, reservationsPagesRoot } from './reservations-pages/reservations-pages-routes';
 
 const routes: Routes = [
   {
     path: 'main',
     component: RaMainComponent,
     children: [
+      {path: '', redirectTo: reservationsPagesRoot, pathMatch: 'full'},
+      reservationsPagesRoutes,
       roomsPagesRoutes,
       newReservationRoutes
     ]
