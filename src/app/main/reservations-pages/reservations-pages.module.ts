@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { RaReservationsPagesComponent } from './reservations-pages.component';
 import { RaAngularMaterialModule } from 'src/app/angular-material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RaReservationsApprovedComponent } from './reservations-approved/reservations-approved.component';
@@ -15,6 +17,7 @@ import { RaReservationsPendingDepComponent } from './reservations-pending-dep/re
   declarations: [
     RaReservationsListWrapperComponent,
     RaReservationsPagesInnerComponent,
+    RaReservationsPagesComponent,
     RaReservationsApprovedComponent,
     RaReservationsPendingComponent,
     RaReservationsApprovedDepComponent,
@@ -22,6 +25,7 @@ import { RaReservationsPendingDepComponent } from './reservations-pending-dep/re
   ],
   imports: [
     CommonModule,
+    RouterModule,
     RaAngularMaterialModule,
     SharedModule,
     RaReservationsModule,
