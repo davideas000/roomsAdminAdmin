@@ -8,13 +8,15 @@ import { RaReservationsModule } from '../reservations/reservations.module';
 import { RaRoomsModule } from '../rooms/rooms.module';
 import { RaReservationsListWrapperComponent } from './reservations-list-wrapper/reservations-list-wrapper.component';
 import { RaReservationsPagesInnerComponent } from './reservations-pages-inner/reservations-pages-inner.component';
+import { RaReservationsApprovedDepComponent } from './reservations-approved-dep/reservations-approved-dep.component';
 
 @NgModule({
   declarations: [
     RaReservationsListWrapperComponent,
     RaReservationsPagesInnerComponent,
     RaReservationsApprovedComponent,
-    RaReservationsPendingComponent
+    RaReservationsPendingComponent,
+    RaReservationsApprovedDepComponent
   ],
   imports: [
     CommonModule,
