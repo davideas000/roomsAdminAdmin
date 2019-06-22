@@ -1,0 +1,12 @@
+@mixin ra-notifications-details-theme($theme) {
+  $accent: map-get($theme, accent); // FIXME: DELETE
+
+  .ra-notifications-details-extra {
+    background-color: mat-color($mat-yellow, 300);
+    color: #000;
+    // FIXME: DELETEB
+    // background-color: mat-color($accent, lighter);
+    // background-color: mat-color($accent);
+    // DELETEE
+  }
+}

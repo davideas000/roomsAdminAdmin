@@ -1,0 +1,27 @@
+<span pageTitle="Notificação" #pageTitle></span>
+<div *ngIf="loading || error; else main" class="error-spinner-wrapper">
+  <mat-spinner *ngIf="loading" class="spinner"
+               color="accent" diameter="50"></mat-spinner>
+  <ra-message-panel
+      [closeButton]="false"
+      *ngIf="error" i18n>Ops, algo deu errado, por favor verifique sua
+    conexão coma Internet e tente novamente</ra-message-panel>
+</div>
+<ng-template #main>
+  <mat-card class="card">
+    <ra-notification [notification]="notification"></ra-notification>
+  </mat-card>
+
+  <mat-card
+      *ngIf="notification?.extra"
+      class="card ra-notifications-details-extra">
+    {{ notification?.extra }}
+  </mat-card>
+
+  <div class="card">
+    <ra-reservation
+        [showPhoto]="false"
+        [showActions]="false"
+        [reservation]="notification?.reservation"></ra-reservation>
+  </div>
+</ng-template>
