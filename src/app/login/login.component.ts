@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RaAuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 @Component({
@@ -12,7 +13,8 @@ export class RaLoginComponent implements OnInit {
   errorCode: string;
   error: boolean = false;
 
-  constructor(public authService: RaAuthService) { }
+  constructor(public authService: RaAuthService,
+              public router: Router) { }
 
   ngOnInit() {}
 
@@ -26,6 +28,7 @@ export class RaLoginComponent implements OnInit {
       first()
     ).subscribe(_ => {
       this.loading = false;
+      this.router.navigate(['/main']);
     }, e => {
       this.loading = false;
       this.errorCode = e.error.message;

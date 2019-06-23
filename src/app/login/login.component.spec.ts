@@ -9,6 +9,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { of, throwError } from 'rxjs';
 import { By } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ra-login-error-message',
@@ -33,13 +34,15 @@ describe('RaLoginComponent', () => {
 
   beforeEach(async(() => {
     const authSpy = jasmine.createSpyObj('RaAuthService', ['login']);
+    const routerSpy = jasmine.createSpyObj('Router', ['navigate'])
     TestBed.configureTestingModule({
       declarations: [ RaLoginComponent, FakeLoginErrorMsgComp,
                       FakeLoginFormComp, FakeOverlaySpinnerComp ],
       imports: [ RaAngularMaterialModule,
                  NoopAnimationsModule ],
       providers: [
-        { provide: RaAuthService, useValue: authSpy }
+        { provide: RaAuthService, useValue: authSpy },
+        { provide: Router, useValue: routerSpy }
       ],
       schemas: [ NO_ERRORS_SCHEMA ]
     })
@@ -130,6 +133,12 @@ describe('RaLoginComponent', () => {
        );
        expect(component.loading).toBe(false);
        expect(component.errorCode).toBeFalsy();
+
+       const routerSpy = fixture.debugElement.injector
+         .get(Router) as jasmine.SpyObj<Router>;
+       // should redirect the user to the main page
+       expect(routerSpy.navigate).toHaveBeenCalledTimes(1);
+       expect(routerSpy.navigate).toHaveBeenCalledWith(['/main']);
      });
 
   it('should display an error message when login fails', () => {
