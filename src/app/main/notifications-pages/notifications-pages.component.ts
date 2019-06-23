@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ra-notifications-pages',
-  templateUrl: './notifications-pages.component.html',
-  styleUrls: ['./notifications-pages.component.scss']
+  template: '<router-outlet></router-outlet>'
 })
 export class RaNotificationsPagesComponent {}
