@@ -2,6 +2,8 @@
         (click)="markNotificationsAsRead()"
         [raOverlayPanelTriggerFor]="notificationsPanel">
   <mat-icon
+      matTooltip="Notificações"
+      i18n-matTooltip
       matBadgeColor="accent"
       [matBadgeHidden]="numUnreadNotifications === 0"
       [matBadge]="numUnreadNotifications">notifications</mat-icon>
