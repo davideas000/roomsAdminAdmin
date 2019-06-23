@@ -5,11 +5,13 @@ import { roomsPagesRoutes } from './rooms-pages/rooms-pages-routes';
 import { newReservationRoutes } from './new-reservation/new-reservation-routes';
 import { reservationsPagesRoutes, reservationsPagesRoot } from './reservations-pages/reservations-pages-routes';
 import { notificationsRoutes } from './notifications-pages/notifications-routes';
+import { RaAuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'main',
     component: RaMainComponent,
+    canActivate: [RaAuthGuard],
     children: [
       {path: '', redirectTo: reservationsPagesRoot, pathMatch: 'full'},
       reservationsPagesRoutes,
