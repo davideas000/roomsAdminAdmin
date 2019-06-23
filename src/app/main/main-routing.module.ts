@@ -4,6 +4,7 @@ import { RaMainComponent } from './main.component';
 import { roomsPagesRoutes } from './rooms-pages/rooms-pages-routes';
 import { newReservationRoutes } from './new-reservation/new-reservation-routes';
 import { reservationsPagesRoutes, reservationsPagesRoot } from './reservations-pages/reservations-pages-routes';
+import { notificationsRoutes } from './notifications-pages/notifications-routes';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: reservationsPagesRoot, pathMatch: 'full'},
       reservationsPagesRoutes,
+      notificationsRoutes,
       roomsPagesRoutes,
       newReservationRoutes
     ]
