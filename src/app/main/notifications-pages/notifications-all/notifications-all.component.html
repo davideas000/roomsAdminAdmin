@@ -1,0 +1,28 @@
+<span pageTitle="Todas as Notificações" #pageTitle
+      i18n-pageTitle></span>
+<div *ngIf="loading || error; else main" class="error-spinner-wrapper">
+  <mat-spinner *ngIf="loading" class="spinner"
+               color="accent" diameter="50"></mat-spinner>
+  <ra-message-panel
+      [closeButton]="false"
+      *ngIf="error" i18n>Ops, algo deu errado, por favor verifique sua
+    conexão coma Internet e tente novamente</ra-message-panel>
+</div>
+<ng-template #main>
+  <mat-card>
+    <ul *ngIf="notifications?.length !== 0; else emptyMessage"
+        class="notifications-list">
+      <li *ngFor="let notification of notifications">
+        <a class="ra-notifications-all-a" matRipple
+           [routerLink]="['/main/notifications', notification._id]">
+          <ra-notification
+              [notification]="notification"></ra-notification>
+        </a>
+      </li>
+    </ul>
+    <ng-template #emptyMessage>
+      <p class="center-text ra-notifications-all-empty-msg"
+         i18n>Não há notificações</p>
+    </ng-template>
+  </mat-card>
+</ng-template>

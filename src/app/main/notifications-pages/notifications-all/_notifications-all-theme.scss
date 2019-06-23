@@ -1,0 +1,14 @@
+@mixin ra-notifications-all-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .ra-notifications-all-a {
+    &:hover, &:focus {
+      background: mat-color($background, 'hover');
+    }
+  }
+
+  .ra-notifications-all-empty-msg {
+    color: mat-color($foreground, secondary-text);
+  }
+}
