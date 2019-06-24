@@ -118,6 +118,36 @@ describe('RaAuthService', () => {
     httpTestingController.verify();
   });
 
+  it('should logout the user when the fetch of the profile '
+     + 'throws an error with a status code of 401', () => {
+       const sessionData = setSession();
+       const service: RaAuthService = TestBed.get(RaAuthService);
+
+       let profileResult;
+       service.profile$
+         .subscribe(profile => profileResult = profile);
+
+       const req = httpTestingController
+         .expectOne(`${environment.apiUrl}/profile`);
+
+       req.flush('error', {status: 401, statusText: 'Unauthorized'});
+
+       expect(req.request.method).toBe('GET');
+       expect(req.request.headers.has('Authorization')).toBe(true);
+       expect(req.request.headers.get('Authorization'))
+         .toBe(`Bearer ${sessionData.token}`);
+
+       expect(profileResult).toBe(null);
+       expect(service.isLoggedIn).toBe(false);
+       expect(service.accessToken).toBe(null);
+
+       const routerSpy = TestBed.get(Router);
+       expect(routerSpy.navigate).toHaveBeenCalledTimes(1);
+       expect(routerSpy.navigate).toHaveBeenCalledWith(['/login']);
+
+       httpTestingController.verify();
+     });
+
   it('#logout() should log out the user', () => {
     setSession();
 

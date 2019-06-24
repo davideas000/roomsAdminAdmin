@@ -5,6 +5,7 @@ import { tap, first } from 'rxjs/operators';
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
 import { ReplaySubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class RaAuthService {
   accessToken: string;
   isLoggedIn: boolean = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.checkLogin();
     if (this.isLoggedIn) this.getProfile();
   }
@@ -55,7 +56,11 @@ export class RaAuthService {
       .pipe(first())
       .subscribe(user => {
         this.profile$.next(user);
-      }, _ => {
+      }, e => {
+        if (e.status === 401) {
+          this.logout();
+          this.router.navigate(['/login']);
+        }
         this.profile$.next(null);
       });
   }
