@@ -1,5 +1,6 @@
 <button
     matRipple
+    [matTooltip]="user?.displayName"
     class="menu-trigger"
     [raOverlayPanelTriggerFor]="userMenuPanel">
   <ra-user-photo [size]="30" [photoURL]="user?.photoURL"></ra-user-photo>
