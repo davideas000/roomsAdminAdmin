@@ -9,6 +9,7 @@ import { RaNotificationsPagesModule } from './notifications-pages/notifications-
 import { RaAngularMaterialModule } from '../angular-material.module';
 import { RaSidenavInnerModule } from './sidenav-inner/sidenav-inner.module';
 import { RaHeaderModule } from './header/header.module';
+import { RaProfilePagesModule } from './profile-pages/profile-pages.module';
 
 @NgModule({
   declarations: [RaMainComponent],
@@ -21,7 +22,8 @@ import { RaHeaderModule } from './header/header.module';
     RaNotificationsPagesModule,
     RaNewReservationModule,
     RaSidenavInnerModule,
-    RaHeaderModule
+    RaHeaderModule,
+    RaProfilePagesModule
   ]
 })
 export class RaMainModule { }
