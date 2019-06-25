@@ -1,0 +1,97 @@
+@import '../../../../assets/scss/breakpoints';
+
+.container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.main-wrapper {
+  padding: 20px;
+  display: inline-block;
+}
+
+.user-data {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .user-data {
+    flex-direction: row;
+  }
+}
+
+.edit-btn {
+  position: absolute;
+
+  $pos: 0;
+  top: $pos;
+  right: $pos;
+}
+
+$photo-size: 200px;
+.photo {
+  width: $photo-size;
+  height: $photo-size;
+  border-radius: 50%;
+}
+
+.photo-placeholder {
+  width: $photo-size;
+  height: $photo-size;
+  font-size: $photo-size;
+}
+
+.fields-wrapper {
+  margin-top: 10px;
+}
+
+@media(min-width: map-get($breakpoints, xs)) {
+  .fields-wrapper {
+    margin-top: 0;
+    margin-left: 30px;
+  }
+}
+
+@media(min-width: map-get($breakpoints, md)) {
+  .fields-wrapper {
+    margin-left: 40px;
+  }
+}
+
+p {
+  margin: 10px 0;
+}
+
+.field {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+$field-w: 120px;
+
+.field-name {
+  @extend .field;
+  width: $field-w;
+  text-align: right;
+}
+
+.field-value {
+  @extend .field;
+  width: $field-w;
+  text-align: left;
+  margin-left: 15px;
+}
+
+.spinner {
+  margin: 50px auto 0;
+}
+
+.error-msg {
+  @extend .spinner;
+  display: block;
+  max-width: 590px;
+}

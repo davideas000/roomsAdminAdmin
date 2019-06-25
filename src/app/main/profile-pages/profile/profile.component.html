@@ -1,0 +1,46 @@
+<span pageTitle="Perfil" i18n-pageTitle #title></span>
+<ng-container *ngIf="loading || error; else main">
+  <mat-spinner *ngIf="loading" color="accent"
+               class="spinner" diameter="50"></mat-spinner>
+  <ra-message-panel
+      [closeButton]="false"
+      *ngIf="error" class="error-msg"
+      i18n>Ops, algo deu errado, por favor, verifique sua conexão com
+    a internet e tente novamente</ra-message-panel>
+</ng-container>
+<ng-template #main>
+  <div class="container">
+    <mat-card class="main-wrapper">
+      <div class="user-data">
+        <a mat-icon-button routerLink="/main/profile/edit"
+           matTooltip="Atualizar Perfil" i18n-matTooltip
+           class="edit-btn">
+          <mat-icon>edit</mat-icon>
+        </a>
+        <img *ngIf="user.photoURL; else placeholder"
+             class="photo" [src]="user.photoURL">
+        <ng-template #placeholder>
+          <mat-icon class="photo-placeholder">account_circle</mat-icon>
+        </ng-template>
+        <div class="fields-wrapper">
+          <p>
+            <span class="field-name" i18n>Name:</span>
+            <span class="field-value">{{user.name}}</span>
+          </p>
+          <p>
+            <span class="field-name" i18n>Nome de exibição:</span>
+            <span class="field-value">{{user.displayName}}</span>
+          </p>
+          <p>
+            <span class="field-name" i18n>Email:</span>
+            <span class="field-value">{{user.email}}</span>
+          </p>
+          <p *ngIf="user.department">
+            <span class="field-name" i18n>Setor:</span>
+            <span class="field-value">{{user.department}}</span>
+          </p>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</ng-template>
