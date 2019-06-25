@@ -1,0 +1,81 @@
+<span pageTitle="Atualizar Perfil" i18n-pageTitle #title></span>
+<ng-container *ngIf="loading || error; else main">
+  <mat-spinner color="accent"
+               *ngIf="loading"
+               class="spinner" diameter="50"></mat-spinner>
+  <ra-message-panel
+      [closeButton]="false"
+      *ngIf="error" class="error-msg" i18n>Ops,
+    algo deu errado, por favor, verifique sua conexão com
+    a internet e tente novamente</ra-message-panel>
+</ng-container>
+<ng-template #main>
+  <div class="container">
+    <mat-card class="form-wrapper">
+      <ra-overlay-spinner *ngIf="processing"></ra-overlay-spinner>
+      <h3 class="form-title" i18n>Dados do Perfil</h3>
+      <ra-message-panel
+          class="duplicate-email-error"
+          *ngIf="duplicateEmailError"
+          (close)="onAlertClose()"
+          i18n>Já existe um usuário cadastrado
+        com esse email!</ra-message-panel>
+      <form [formGroup]="profileForm" (ngSubmit)="update()">
+
+        <div class="field">
+          <mat-form-field color="accent" class="field"
+                          appearance="outline">
+            <mat-label i18n>Nome</mat-label>
+            <input matInput type="text" name="name"
+                   formControlName="name" required>
+            <mat-error *ngIf="name.errors?.required; else minlength"
+                       i18n>Campo obrigatório</mat-error>
+            <ng-template #minlength>
+              <mat-error *ngIf="name.errors?.minlength"
+                         i18n>Minimo de 5 caracteres</mat-error>
+            </ng-template>
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field color="accent" class="field"
+                          appearance="outline">
+            <mat-label i18n>Nome de exibição</mat-label>
+            <input matInput type="text" name="displayName"
+                   formControlName="displayName" required>
+            <mat-error *ngIf="displayName.errors?.required"
+                       i18n>Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field color="accent" class="field"
+                          appearance="outline">
+            <mat-label i18n>Email</mat-label>
+            <input matInput type="email" required
+                   name="email" formControlName="email">
+            <mat-error *ngIf="email.errors?.email"
+                       i18n>Email invalido</mat-error>
+            <mat-error *ngIf="email.errors?.required"
+                       i18n>Campo obrigatório</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field color="accent" class="field"
+                          appearance="outline">
+            <mat-label i18n>Confirmação de email</mat-label>
+            <input matInput type="email" required
+                   name="emailConfirmation"
+                   formControlName="emailConfirmation">
+            <mat-error *ngIf="emailConfirmation.errors?.emailConfirmation"
+                       i18n>Deve ser igual ao compo anterior</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="btns-wrapper">
+          <button mat-stroked-button (click)="cancel()"
+                  type="button" i18n>Cancelar</button>
+          <button mat-stroked-button type="submit"
+                  [disabled]="profileForm.invalid" i18n>Atualizar</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</ng-template>
