@@ -4,7 +4,7 @@ import { RaUser } from '../models/user.model';
 import { tap, first } from 'rxjs/operators';
 import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
-import { ReplaySubject } from 'rxjs';
+import { ReplaySubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -63,6 +63,16 @@ export class RaAuthService {
         }
         this.profile$.next(null);
       });
+  }
+
+  updateProfile(updateData: {name: string, displayName: string, email: string}): Observable<RaUser> {
+    this.accessToken = localStorage.getItem("accessToken");
+    return this.http.put<any>(
+      `${environment.apiUrl}/profile`,
+      updateData,
+      {headers: new HttpHeaders()
+       .set("Authorization", `Bearer ${this.accessToken}`)})
+      .pipe(tap(user => {this.profile$.next(user)}));
   }
 
   logout() {

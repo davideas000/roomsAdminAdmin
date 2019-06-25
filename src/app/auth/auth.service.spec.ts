@@ -157,4 +157,29 @@ describe('RaAuthService', () => {
     expect(service.accessToken).toBeFalsy();
     expect(service.isLoggedIn).toBeFalsy();
   })
+
+  it('#updateProfile() should make a PUT request to the server',
+     () => {
+       const service: RaAuthService = TestBed.get(RaAuthService);
+       const updateDataStub: any = {
+         name: 'newname',
+         displayName: 'newdisplayname',
+         email: 'newemail@email.com'
+       };
+       service.updateProfile(updateDataStub).subscribe(
+         (newUser) => expect(newUser).toEqual(updateDataStub),
+         _ => fail('should not fail')
+       );
+       const req = httpTestingController.expectOne(`${environment.apiUrl}/profile`);
+       expect(req.request.method).toBe('PUT');
+       expect(req.request.body).toEqual(updateDataStub);
+       req.flush(updateDataStub);
+       httpTestingController.verify();
+
+       // should update current user
+       service.profile$.subscribe(
+         user => expect(user).toEqual(updateDataStub),
+         _ => fail('should not fail')
+       );
+     });
 });
