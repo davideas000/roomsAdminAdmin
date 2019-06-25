@@ -6,6 +6,7 @@ import { newReservationRoutes } from './new-reservation/new-reservation-routes';
 import { reservationsPagesRoutes, reservationsPagesRoot } from './reservations-pages/reservations-pages-routes';
 import { notificationsRoutes } from './notifications-pages/notifications-routes';
 import { RaAuthGuard } from '../auth/auth.guard';
+import { profilePagesRoutes } from './profile-pages/profile-pages-routes';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
       reservationsPagesRoutes,
       notificationsRoutes,
       roomsPagesRoutes,
-      newReservationRoutes
+      newReservationRoutes,
+      profilePagesRoutes
     ]
   }
 ];
