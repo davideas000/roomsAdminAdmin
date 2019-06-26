@@ -39,13 +39,13 @@ export class RaAuthService {
   }
 
   private setSession(r: any) {
-    this.profile$.next(r.profile);
     this.accessToken = r.token;
     this.isLoggedIn = true;
     const expiresAt = moment().add(r.expiresIn, 's');
     localStorage.setItem('accessToken', this.accessToken);
     localStorage.setItem('expiresAt',
                          JSON.stringify(expiresAt.valueOf()));
+    this.getProfile();
   }
 
   private getProfile() {
@@ -72,7 +72,9 @@ export class RaAuthService {
       updateData,
       {headers: new HttpHeaders()
        .set("Authorization", `Bearer ${this.accessToken}`)})
-      .pipe(tap(user => {this.profile$.next(user)}));
+      .pipe(tap(_ => {
+        this.getProfile();
+      }));
   }
 
   logout() {
