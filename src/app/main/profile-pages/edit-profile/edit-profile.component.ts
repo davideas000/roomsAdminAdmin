@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, OnDestroy } from '@angular/core';
 import { FormGroup, Validators, ValidatorFn, ValidationErrors, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { RaAuthService } from '../../../auth/auth.service';
@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { RaHeaderTitleService } from '../../header/header-title.service';
 import { Title } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
 
 @Component({
   template: "<p i18n='sucessful profile update'>Perfil atualizado</p>",
@@ -18,7 +19,7 @@ export class RaUpdateProfileSucessComponent {}
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss']
 })
-export class RaEditProfileComponent implements OnInit {
+export class RaEditProfileComponent implements OnInit, OnDestroy {
   profileForm: FormGroup = new FormGroup({
     name: new FormControl(
       '', Validators.compose(
@@ -39,6 +40,8 @@ export class RaEditProfileComponent implements OnInit {
 
   @ViewChild('title') pageTitle: ElementRef;
 
+  profile_$: Subscription;
+
   constructor(private title: Title,
               private headerTitle: RaHeaderTitleService,
               private authService: RaAuthService,
@@ -47,10 +50,10 @@ export class RaEditProfileComponent implements OnInit {
 
   ngOnInit() {
     this.setTitle();
-    this.authService.profile$
-      .pipe(first())
+    this.profile_$ = this.authService.profile$
       .subscribe(
         user => {
+          if (!user) return;
           this.profileForm.setValue({
             name: user.name,
             displayName: user.displayName,
@@ -64,6 +67,10 @@ export class RaEditProfileComponent implements OnInit {
           this.error = true;
         }
       );
+  }
+
+  ngOnDestroy() {
+    this.profile_$.unsubscribe();
   }
 
   private setTitle() {
