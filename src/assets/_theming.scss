@@ -12,6 +12,7 @@
 @import '../app/main/rooms/rooms-list/room/room-theme';
 @import '../app/main/rooms-pages/rooms-details/reservations-panel-header/reservations-panel-header-theme';
 @import '../app/main/notifications-pages/notifications-all/notifications-all-theme';
+@import '../app/shared/file-input/file-input-theme';
 
 @mixin backdropbg ($background) {
 
@@ -101,4 +102,5 @@
   @include ra-room-theme($theme);
   @include ra-reservations-panel-header-theme($theme);
   @include ra-notifications-all-theme($theme);
+  @include ra-file-input-theme($theme);
 }

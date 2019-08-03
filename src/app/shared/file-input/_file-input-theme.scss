@@ -1,0 +1,24 @@
+@mixin ra-file-input-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $is-dark-theme: map-get($theme, is-dark);
+
+  .ra-file-input-fake-input {
+    color: mat-color($foreground, divider, if($is-dark-theme, 0.3, 0.12));
+
+    span {
+      color: mat-color($foreground, secondary-text);
+    }
+
+    &:hover, &:focus {
+      background: mat-color($background, 'hover');
+    }
+
+    .ra-file-input-clear-btn {
+      color: mat-color($foreground, secondary-text);
+      &:hover, &:focus {
+        color: mat-color($foreground, text);
+      }
+    }
+  }
+}

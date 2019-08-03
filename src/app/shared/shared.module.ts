@@ -10,6 +10,7 @@ import { RaRelativeTimePipe } from './relative-time.pipe';
 import { RaImageSlideshowComponent } from './image-slideshow/image-slideshow.component';
 import { RaImagePlaceholderComponent } from './image-placeholder/image-placeholder.component';
 import { RaInputTimeDirective } from './input-time.directive';
+import { RaFileInputComponent } from './file-input/file-input.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RaInputTimeDirective } from './input-time.directive';
     RaRelativeTimePipe,
     RaImageSlideshowComponent,
     RaImagePlaceholderComponent,
-    RaInputTimeDirective
+    RaInputTimeDirective,
+    RaFileInputComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { RaInputTimeDirective } from './input-time.directive';
     RaRelativeTimePipe,
     RaImageSlideshowComponent,
     RaImagePlaceholderComponent,
-    RaInputTimeDirective
+    RaInputTimeDirective,
+    RaFileInputComponent
   ]
 })
 export class SharedModule { }

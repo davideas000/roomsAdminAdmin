@@ -1,0 +1,42 @@
+input {
+  display: none;
+}
+
+.ra-file-input-fake-input {
+  border-radius: 5px;
+  border: 1px solid currentColor;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ra-file-input-fake-input span {
+  word-break: break-word;
+}
+
+.filename-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.filename-wrapper span {
+  margin: 0 auto;
+  flex: 1 1 300px;
+}
+
+$clear-btn-bg: #444;
+.ra-file-input-clear-btn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  margin-left: 10px;
+
+  $size: 24px;
+  width: $size;
+  height: $size;
+  font-size: $size;
+  line-height: $size - 10px;
+  outline: none;
+  border-radius: 50%;
+}

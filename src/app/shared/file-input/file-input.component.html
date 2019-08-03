@@ -1,0 +1,12 @@
+<input type="file" accept="image/*" (change)="onChange()" #input>
+<div class="ra-file-input-fake-input"
+     matRipple (click)="onClick()">
+  <div *ngIf="filename; else noFilename" class="filename-wrapper">
+    <span>{{ filename }}</span>
+    <button class="ra-file-input-clear-btn" type="button"
+            (click)="onClear($event)">&times;</button>
+  </div>
+  <ng-template #noFilename>
+    <span i18n>Adicionar foto</span>
+  </ng-template>
+</div>
